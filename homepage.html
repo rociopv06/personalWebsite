@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image with Scrollable Content Box</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+
+</head>
+<body>
+    <div class="background">
+        <div class="beside">
+            <h1>Welcome in!</h1>
+            <h1 class="greeting">I'm Rocio PV</h1>
+            <button class="button" onclick="showSection('portfolio')">> Portfolio</button>
+            <button class="button" onclick="showSection('interests')">> Interests</button>
+            <button class="button" onclick="showSection('about-me')">> About me</button>
+            <button class="button" onclick="showSection('resume')">> Resume</button>
+        </div>
+        <div class="image-container">
+            <img src="media/mac.png" class="mac-image" alt="mac"> 
+            <div class="mac-content">
+                <div id="portfolio-content">
+                    <button class="linked-div" onclick="openUp(this, '/personalizedwordcount/homepage.html')">
+                        <img src="media/personalizedwordcount.png" alt="logo" class="image-placeholder">
+                        <div class="text-content">
+                            <h3>Personalized Wordcount</h3>
+                            <p>A published Google Docs extension to allow for selective word counting</p>
+                        </div>
+                    </button>
+                    <button class="linked-div" onclick="openUp(this, '/personalizedwordcount/homepage.html')">
+                        <img src="media/personalizedwordcount.png" alt="logo" class="image-placeholder">
+                        <div class="text-content">
+                            <h3>Personalized Wordcount</h3>
+                            <p>A published Google Docs extension to allow for selective word counting</p>
+                        </div>
+                    </button>
+                    <button class="linked-div" onclick="openUp(this, '/personalizedwordcount/homepage.html')">
+                        <img src="media/personalizedwordcount.png" alt="logo" class="image-placeholder">
+                        <div class="text-content">
+                            <h3>Personalized Wordcount</h3>
+                            <p>A published Google Docs extension to allow for selective word counting</p>
+                        </div>
+                    </button>
+                    <button class="linked-div" onclick="openUp(this, '/personalizedwordcount/homepage.html')">
+                        <img src="media/personalizedwordcount.png" alt="logo" class="image-placeholder">
+                        <div class="text-content">
+                            <h3>Personalized Wordcount</h3>
+                            <p>A published Google Docs extension to allow for selective word counting</p>
+                        </div>
+                    </button>
+                </div>
+                <div id="interests-content">
+                    <img src="media/CHANGE.jpeg" alt="change">
+                </div>
+                <div id="about-me-content">
+                    <h2>About Me</h2>
+                    <img src="media/me.png" alt="me" class="profile-image">
+                    <p>I like robots, AI and woowza ethics/law???</p>
+                    <div class="details">
+                        <p><strong>Name:</strong> Rocio Perales Valdes</p>
+                        <p><strong>Location:</strong> Atlanta, Georgia/ Spain</p>
+                        <p><strong>Skills:</strong> Java,Python..kl</p>
+                    </div>
+                </div>
+                <div id="resume-content">
+                    <h2>Resume</h2>
+                    <a href="media/resume.pdf" target="_blank" >Download the PDF</a>
+                    <object data="media/resume.pdf" type="application/pdf" class="pdf">
+	                    <p> So sorry! The pdf failed to load, please another browser or download my resume above </p>
+                    </object>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</body>
+</html>

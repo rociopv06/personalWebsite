@@ -1,0 +1,160 @@
+body, html {
+    font-family: monospace, system-ui;
+    margin: 0;
+    color: antiquewhite;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+.beside {
+    position: absolute;
+    font-family: monospace, system-ui;
+    flex-direction: column;
+    top: 10%;
+    left: 2%;
+    text-shadow: 0 0 10px rgb(200, 148, 62);
+}
+
+.greeting {
+    font-size: 4rem;
+    padding-bottom: 5%;
+}
+
+.button {
+    text-shadow: 0 0 10px rgb(200, 148, 62);
+    display: block;
+    font-family: monospace, system-ui;
+    background: none;
+    color: rgb(238, 225, 207);
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 3rem;
+    margin: 5px 0;
+    text-align: left;
+}
+
+.button:hover {
+    color: rgb(200, 148, 62);
+    text-decoration: underline;
+}
+
+.background {
+    background-color: black;
+    height: 100vh;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    position: relative;
+}
+
+.image-container {
+    position: relative;
+    height: 90%;
+    bottom: 5%;
+}
+
+.mac-image {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.profile-image {
+    position: relative;
+    top: 1%;
+    right: 2%;
+    width: 30%;
+    margin-bottom: 20px;
+}
+
+.mac-content {
+    transform: rotateZ(357deg);
+    transform: skew(5deg);
+    box-shadow: 0 0 3px white;
+    position: absolute;
+    top: 2%;
+    left: 5.5%;
+    width: 96.5%;
+    height: 84.2%;
+    background-color: whitesmoke;
+    border-radius: 2%;
+    color: rgb(0, 0, 0);
+    padding: 20px;
+    overflow-y: auto;
+    text-align: center;
+}
+
+#portfolio-content,
+#interests-content,
+#resume-content {
+    display: none;
+    height: 100%;
+}
+
+#about-me-content {
+    display: block;
+    height: 100%;
+}
+
+.pdf {
+    min-height: 100vh;
+    width: 90%;
+}
+
+.linked-div {
+    width: 90%;
+    margin: 10px auto;
+    padding: 10px;
+    background-color: whitesmoke;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    color: inherit;
+    height: 30%;
+    overflow: hidden;
+}
+
+.linked-div:hover {
+    box-shadow: 0 0 20px rgb(14, 13, 12);
+    transform: scale(1.05);
+}
+
+.image-placeholder {
+    width: 100px;
+    height: 100px;
+    background-color: #ddd;
+    border-radius: 10px;
+    margin-right: 15px;
+    object-fit: cover;
+}
+
+.text-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.linked-div h3 {
+    margin: 10px 0;
+    color: #333;
+    font-size: 1.2rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.linked-div p {
+    color: #666;
+    font-size: 0.9rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
