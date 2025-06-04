@@ -10,7 +10,7 @@ header {
     top: 0;
     left: 0;
     right: 0;
-    background-color: whitesmoke;
+    background-color: white;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 10px 20px;
     z-index: 1000;
@@ -244,4 +244,145 @@ footer {
   .info-column p, .info-column ol {
     text-align: justify;
   }
+  .hamburger {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+  
+  .mobile-sidebar {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: -250px;
+    height: 100%;
+    width: 250px;
+    background-color: white;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.3);
+    padding-top: 60px;
+    transition: left 0.3s ease;
+    z-index: 1500;
+  }
+  
+  .mobile-sidebar.active {
+    left: 0;
+  }
+  
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+  
+  
+  @media (max-width: 768px) {
+    header {
+        padding: 10px;
+    }
 
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .hero-text {
+        font-size: 1.2em;
+        padding: 0 10px;
+    }
+
+    .info-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .info-column {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .paragraph-text {
+        padding: 10%;
+    }
+
+    .download-button {
+        width: 100%;
+        font-size: 1em;
+    }
+
+    .slider-container {
+        max-width: 100%;
+        padding: 0 10px;
+    }
+
+    .logo {
+        height: 40px;
+        width: 40px;
+    }
+
+    .collapsible {
+        font-size: 1em;
+    }
+
+    .floating-home-button {
+        bottom: 15px;
+        right: 15px;
+        font-size: 0.75rem;
+        padding: 10px;
+    }
+
+    .section-title {
+        font-size: 1.2em;
+    }
+
+    .media-container:before {
+        padding-top: 56.25%;
+    }
+
+    .media-container iframe {
+        height: 100%;
+    }
+    #desktop-nav {
+        display: none;
+      }
+    
+    .hamburger {
+        display: block;
+    }
+    
+    .nav-links {
+        flex-direction: column;
+        padding-left: 20px;
+    }
+    
+    .mobile-sidebar {
+        display: block;
+    }
+    
+    .mobile-sidebar .nav-links li {
+        margin: 15px 0;
+    }
+    .hero {
+        margin-top: 10%;
+        font-size: smaller;
+
+    }
+}

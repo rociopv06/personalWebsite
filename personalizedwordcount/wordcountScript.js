@@ -11,4 +11,17 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   }
+  const hamburger = document.getElementById('hamburger');
+  const mobileSidebar = document.getElementById('mobileSidebar');
+  const closeSidebar = document.getElementById('closeSidebar');
+
+  hamburger.addEventListener('click', () => {
+    mobileSidebar.classList.add('active');
+  });
+
+  closeSidebar.addEventListener('click', () => {
+    mobileSidebar.classList.remove('active');
+  });
 });
+
+ 

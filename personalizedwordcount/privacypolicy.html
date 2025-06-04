@@ -8,20 +8,36 @@
     <script src="wordcountScript.js"></script>
 </head>
 <body>
-    <header>
-        <nav>
-            <div >
-                <span><img src="/media/personalizedwordcount.png" alt="logo" class="logo"></span>
-            </div>
-            <ul class="nav-links">
-                <li><a href="/personalizedwordcount/homepage.html">Wordcount home</a></li>
-                <li><a href="/personalizedwordcount/tutorial.html">Tutorial</a></li>
-                <li><a href="/personalizedwordcount/privacypolicy.html">Privacy Policy</a></li>
-                <li><a href="/personalizedwordcount/termsofservice.html">Terms of Service</a></li>
-                <li><a href="/personalizedwordcount/feedback.html">Feedback</a></li>
-            </ul>
-        </nav>
-    </header>
+  <header>
+    <nav>
+      <div class="logo-container">
+        <a href="/personalizedwordcount/homepage.html">
+          <img src="/media/personalizedwordcount.png" alt="logo" class="logo">
+        </a>
+        <button class="hamburger" id="hamburger">&#9776;</button> <!-- ☰ -->
+      </div>
+  
+
+      <ul class="nav-links" id="desktop-nav">
+        <li><a href="/personalizedwordcount/homepage.html">Wordcount Home</a></li>
+        <li><a href="/personalizedwordcount/tutorial.html">Tutorial</a></li>
+        <li><a href="/personalizedwordcount/privacypolicy.html">Privacy Policy</a></li>
+        <li><a href="/personalizedwordcount/termsofservice.html">Terms of Service</a></li>
+        <li><a href="/personalizedwordcount/feedback.html">Feedback</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <div class="mobile-sidebar" id="mobileSidebar">
+    <button class="close-btn" id="closeSidebar">&times;</button>
+    <ul class="nav-links">
+      <li><a href="/personalizedwordcount/homepage.html">Wordcount Home</a></li>
+      <li><a href="/personalizedwordcount/tutorial.html">Tutorial</a></li>
+      <li><a href="/personalizedwordcount/privacypolicy.html">Privacy Policy</a></li>
+      <li><a href="/personalizedwordcount/termsofservice.html">Terms of Service</a></li>
+      <li><a href="/personalizedwordcount/feedback.html">Feedback</a></li>
+    </ul>
+  </div>
     <main class="paragraph-text">
       <div class="section-title" >
         <h1>Privacy policy</h1>
@@ -71,8 +87,12 @@
         <p class="footer-link">
           If you have any concerns please fill them in <a href="https://forms.gle/GJebM7hiq5FdDV9M6">here</a>.
         </p>
-      <a href="/homepage.html" class="floating-home-button" title="Home">
+      <a href="/index.html" class="floating-home-button" title="Home">
           <p>Back to portfolio &#8592;</p>
       </a>
       </main>
+      <footer>
+        <p >Author: <a href="https://github.com/rociopv06">Rocio Perales Valdes</a></p>
+    </footer>
 </body>
+</html>
