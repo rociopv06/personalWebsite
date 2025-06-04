@@ -158,3 +158,21 @@ body, html {
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
 }
+.interests-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+}
+
+.interest-item {
+    width: 150px;
+    text-align: center;
+}
+
+.interest-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
+}
