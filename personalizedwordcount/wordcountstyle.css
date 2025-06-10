@@ -1,6 +1,7 @@
 body {
     font-family: monospace, system-ui;
-    margin: 0;
+    margin-left: 5%;
+    margin-right: 5%;
     padding: 0;
     box-sizing: border-box;
 }
@@ -94,6 +95,7 @@ nav {
     margin: 20px 0;
 }
 .paragraph-text {
+    
     text-align: left;
     padding: 5%;
 }
@@ -303,7 +305,9 @@ footer {
         margin-left: 0;
         width: 100%;
     }
-
+    .hero {
+        margin-top: 10%;
+    }
     .hero-text {
         font-size: 1.2em;
         padding: 0 10px;
@@ -320,6 +324,8 @@ footer {
     }
 
     .paragraph-text {
+        margin-left: 5%;
+        margin-right: 5%;
         padding: 10%;
     }
 
