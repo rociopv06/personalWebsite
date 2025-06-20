@@ -5,8 +5,11 @@ body, html {
     padding: 0;
     height: 100%;
     overflow: hidden;
+    cursor:url(/media/pixelCursor.png), auto;
 }
-
+.mobile-nav {
+    display: none;
+}
 .beside {
     position: absolute;
     font-family: monospace, system-ui;
@@ -15,7 +18,12 @@ body, html {
     left: 2%;
     text-shadow: 0 0 10px rgb(200, 148, 62);
 }
-
+.social {
+    margin-top: 25px;
+    flex-direction: column;
+    height: 100px;
+    width: 100px;
+}
 .greeting {
     font-size: 4rem;
     padding-bottom: 5%;
@@ -62,7 +70,7 @@ body, html {
 }
 
 .profile-image {
-    position: relative;
+    position: center;
     top: 1%;
     right: 2%;
     width: 30%;
@@ -89,6 +97,7 @@ body, html {
 #portfolio-content,
 #interests-content,
 #resume-content {
+    font-family: monospace, system-ui;
     display: none;
     height: 100%;
 }
@@ -136,6 +145,7 @@ body, html {
 }
 
 .text-content {
+    font-family: monospace, system-ui;
     flex: 1;
     min-width: 0;
 }
@@ -175,4 +185,157 @@ body, html {
     height: auto;
     border-radius: 12px;
     object-fit: cover;
+}
+@media screen and (max-width: 768px) {
+    body, html {
+        overflow: auto;
+    }
+
+    .background {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        height: auto;
+    }
+
+    .social {
+        width: 30px;
+        height: 30px;
+        margin: 5px;
+    }
+
+    .mobile-nav {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1000;
+        display: none;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    #hamburger {
+        font-size: 2rem;
+        cursor: pointer;
+        background: #111;
+        color: white;
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    #mobile-menu {
+        display: none;
+        background: rgba(0, 0, 0, 0.95);
+        padding: 10px;
+        border-radius: 10px;
+        margin-top: 5px;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #mobile-menu button {
+        background: #333;
+        color: white;
+        border: none;
+        padding: 10px;
+        font-size: 1rem;
+        border-radius: 5px;
+        width: 150px;
+        text-align: left;
+    }
+
+    .beside {
+        position: relative;
+        width: 100%;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .greeting {
+        z-index: 1;
+        position: relative;
+        font-size: 2rem;
+    }
+
+    .button {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    .social {
+        flex-direction: row;
+        width: 60px;
+        height: 60px;
+        margin: 10px;
+    }
+
+    .image-container {
+        position: static;
+        width: 100%;
+        height: auto;
+    }
+
+    .mac-image {
+        width: 100%;
+        height: auto;
+    }
+
+    .mac-content {
+        position: static;
+        transform: none;
+        width: 95%;
+        height: auto;
+        margin: 20px auto;
+        border-radius: 10px;
+        padding: 15px;
+    }
+
+    .linked-div {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        height: auto;
+    }
+
+    .image-placeholder {
+        margin: 0 0 10px 0;
+        width: 80px;
+        height: 80px;
+    }
+
+    .linked-div h3 {
+        font-size: 1rem;
+    }
+
+    .linked-div p {
+        font-size: 0.85rem;
+    }
+
+    .profile-image {
+        width: 60%;
+    }
+
+    .interests-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .interest-item {
+        width: 80%;
+    }
+
+    .pdf {
+        width: 100%;
+        min-height: 500px;
+    }
+    .mac-image {
+        display: none;
+    }
+
+    .mac-content {
+        border-radius: 0;
+        width: 100%;
+        transform: none;
+        position: static;
+    }
 }

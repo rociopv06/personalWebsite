@@ -23,5 +23,3 @@ document.addEventListener("DOMContentLoaded", function () {
     mobileSidebar.classList.remove('active');
   });
 });
-
- 

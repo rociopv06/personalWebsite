@@ -1,7 +1,26 @@
+document.addEventListener("DOMContentLoaded", function () {
+    const hamburger = document.getElementById("hamburger");
+    const menu = document.getElementById("mobile-menu");
+    const nav = document.querySelector(".mobile-nav");
+
+    hamburger.addEventListener("click", () => {
+        menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+    });
+
+    window.addEventListener("scroll", () => {
+        const threshold = document.querySelector(".greeting")?.offsetTop || 200;
+        if (window.scrollY > threshold) {
+            nav.style.display = "flex";
+        } else {
+            nav.style.display = "none";
+            menu.style.display = "none";
+        }
+    });
+});
 function showSection(section) {
     const sections = ['portfolio', 'interests', 'about-me', 'resume'];
     sections.forEach(id => {
-        const element = document.getElementById(`${id}-content`); // <-- backticks
+        const element = document.getElementById(`${id}-content`); 
         if (element) {
             element.style.display = (id === section) ? 'block' : 'none';
         }
