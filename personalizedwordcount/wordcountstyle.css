@@ -17,6 +17,7 @@ header {
     z-index: 1000;
     width: 100%;
     box-sizing: border-box;
+    height: 8%;
 }
 
 nav {
@@ -63,12 +64,14 @@ nav {
     position: relative;
     text-align: center;
     color: white;
-    height: 30%;
+    height: 10%;
+    padding-top: 5%;
 }
 
 .hero img {
     width: 100%;
-    height: 30%;
+    max-height: fit-content;
+    object-fit: cover;
 }
 
 .hero-text {
@@ -77,9 +80,15 @@ nav {
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
-    font-size: 2em;
+    font-size: clamp(1rem, 3vw, 2rem);
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    max-width: 90%;
+    text-align: center;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
+
+
 
 .highlight-section {
     text-align: center;
@@ -129,6 +138,7 @@ nav {
 
 .features {
     margin: 20px;
+    min-width: 90%;
 }
 
 .slider-container {
