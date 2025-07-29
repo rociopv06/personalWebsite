@@ -172,23 +172,34 @@ body, html {
     -webkit-box-orient: vertical;
 }
 .interests-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
+    display: grid;
+    gap: 1%;
     justify-content: center;
-}
-
-.interest-item {
+    grid-template-columns: repeat(3, 30%);
+  }
+  .interest-item {
     width: 150px;
     text-align: center;
 }
-
 .interest-item img {
     width: 100%;
-    height: auto;
-    border-radius: 12px;
+    height: 60%; 
     object-fit: cover;
+    border-radius: 12px;
+    display: block;
 }
+.interest-item:nth-child(7),
+.interest-item:nth-child(8) {
+  grid-column: span 1;
+}
+
+/* Override grid layout after the 6th item */
+.interest-item:nth-child(7):nth-last-child(2),
+.interest-item:nth-child(8):last-child {
+  grid-column: span 1;
+  justify-self: center;
+}
+
 @media screen and (max-width: 768px) {
     body, html {
         overflow: auto;
