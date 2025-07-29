@@ -188,17 +188,6 @@ body, html {
     border-radius: 12px;
     display: block;
 }
-.interest-item:nth-child(7),
-.interest-item:nth-child(8) {
-  grid-column: span 1;
-}
-
-/* Override grid layout after the 6th item */
-.interest-item:nth-child(7):nth-last-child(2),
-.interest-item:nth-child(8):last-child {
-  grid-column: span 1;
-  justify-self: center;
-}
 
 @media screen and (max-width: 768px) {
     body, html {
