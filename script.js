@@ -16,15 +16,20 @@ document.addEventListener("DOMContentLoaded", function () {
             menu.style.display = "none";
         }
     });
+
 });
 function showSection(section) {
     const sections = ['portfolio', 'interests', 'about-me', 'resume'];
     sections.forEach(id => {
-        const element = document.getElementById(`${id}-content`); 
+        const element = document.getElementById(`${id}-content`);
         if (element) {
             element.style.display = (id === section) ? 'block' : 'none';
         }
     });
+    const macContent = document.querySelector('.mac-content');
+    if (macContent) {
+        macContent.classList.toggle('portfolio-active', section === 'portfolio');
+    }
 }
 function openUp(el, webpage) {
     const clone = el.cloneNode(true);

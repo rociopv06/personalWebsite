@@ -18,6 +18,25 @@ body, html {
     left: 2%;
     text-shadow: 0 0 10px rgb(200, 148, 62);
     max-width: 40%;
+    scrollbar-width: thin;
+    scrollbar-color: #888 transparent;
+}
+
+.beside::-webkit-scrollbar {
+    width: 6px;
+}
+
+.beside::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.beside::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+.beside::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
 .social {
     margin-top: 25px;
@@ -107,8 +126,36 @@ a[href*="substack.com"] {
     border-radius: 2%;
     color: rgb(0, 0, 0);
     padding: 20px;
-    overflow-y: auto;
+    overflow-y: hidden;
     text-align: center;
+    direction: rtl;
+}
+
+.mac-content > * {
+    direction: ltr;
+}
+
+.mac-content.portfolio-active {
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    scrollbar-color: #888 transparent;
+}
+
+.mac-content.portfolio-active::-webkit-scrollbar {
+    width: 6px;
+}
+
+.mac-content.portfolio-active::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.mac-content.portfolio-active::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+.mac-content.portfolio-active::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
 
 #portfolio-content,
@@ -116,13 +163,27 @@ a[href*="substack.com"] {
 #resume-content, #about-me-content {
     font-family: monospace, system-ui;
     display: none;
-    height: 100%;
+    height: auto;
     max-width: 98%;
+}
+
+#portfolio-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#portfolio-content .linked-div {
+    flex: 1;
+    min-height: 0;
+    margin: 0 auto;
+    width: 90%;
 }
 
 #about-me-content {
     display: block;
-    height: 100%;
+    height: auto;
 }
 
 .pdf {
@@ -144,7 +205,7 @@ a[href*="substack.com"] {
     cursor: pointer;
     transition: box-shadow 0.3s ease, transform 0.3s ease;
     color: inherit;
-    height: 30%;
+    min-height: 80px;
     overflow: hidden;
 }
 
