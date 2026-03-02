@@ -24,6 +24,21 @@ body, html {
     flex-direction: column;
     height: 100px;
     width: 100px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+/* easily adjust Substack icon height here */
+.social.substack-icon {
+    height: 84px;
+    width: 84px;
+    display: block;
+}
+
+a[href*="substack.com"] {
+    display: inline-block;
+    position: relative;
+    top: -8px;
 }
 .greeting {
     font-size: 4em;
