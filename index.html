@@ -6,69 +6,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta property="og:image" content="/media/preview.png">
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js"></script>
-    
-
+<script src="script.js"></script>
 </head>
 <body>
     <div class="background">
-        <div class="mobile-nav">
+
+        <!-- Mobile header (shown only on mobile) -->
+        <div class="mobile-header" id="mobile-header">
+            <span class="mobile-title">Rocio PV</span>
             <div id="hamburger">&#9776;</div>
-            <div id="mobile-menu">
-                <button onclick="showSection('portfolio')">Portfolio</button>
-                <button onclick="showSection('interests')">Interests</button>
-                <button onclick="showSection('about-me')">About</button>
-                <button onclick="showSection('resume')">Resume</button>
+        </div>
+
+        <!-- Mobile dropdown menu -->
+        <div id="mobile-menu">
+            <button onclick="showSection('about-me'); closeMenu()">About</button>
+            <button onclick="showSection('portfolio'); closeMenu()">Portfolio</button>
+            <button onclick="showSection('resume'); closeMenu()">Resume</button>
+            <div class="menu-socials">
+                <a href="https://www.linkedin.com/in/rocio-pv/" target="_blank" class="social-link">LinkedIn</a>
+                <a href="https://substack.com/@rociopv" target="_blank" class="social-link">Substack</a>
+                <a href="https://www.github.com/rociopv06" target="_blank" class="social-link">GitHub</a>
+                <a href="https://calendly.com/rociomymail/30min" target="_blank" class="social-link">Calendly</a>
             </div>
         </div>
-        <div class="beside">
-            <h1>Welcome in!</h1>
-            <h1 class="greeting">I'm Rocio PV</h1>
-            <button class="button" onclick="showSection('portfolio')">> Portfolio</button>
-            <button class="button" onclick="showSection('interests')">> Interests</button>
-            <button class="button" onclick="showSection('about-me')">> About me</button>
-            <button class="button" onclick="showSection('resume')">> Resume</button>
-            <a href="https://www.github.com/rociopv06" target="_blank"><img class="social" src="media/github.png" alt="github"></a>
-            <a href="https://www.linkedin.com/in/rocio-pv/" target="_blank" ><img class="social" src="media/linkedin.png" alt="linkedin"></a>
-            <a href="https://substack.com/@rociopv?utm_campaign=profile&utm_medium=profile-page" target="_blank" title="Substack"><img class="social substack-icon" src="media/Substack.png" alt="substack"></a>
-            
-        </div>
+
+
+        <!-- Laptop -->
         <div class="image-container">
-            <img src="media/mac.png" class="mac-image" alt="mac"> 
+            <img src="media/mac.png" class="mac-image" alt="mac">
             <div class="mac-content">
-<div id="portfolio-content">
+
+                <!-- Header nav inside the laptop screen -->
+                <div class="screen-header">
+                    <span class="screen-title">Rocio PV</span>
+                    <nav class="screen-nav">
+                        <button onclick="showSection('about-me')">> About me</button>
+                        <button onclick="showSection('portfolio')">> Portfolio</button>
+                        <button onclick="showSection('resume')">> Resume</button>
+                    </nav>
+                    <div class="header-socials">
+                        <a href="https://www.linkedin.com/in/rocio-pv/" target="_blank" class="social-link">LinkedIn</a>
+                        <a href="https://substack.com/@rociopv" target="_blank" class="social-link">Substack</a>
+                        <a href="https://www.github.com/rociopv06" target="_blank" class="social-link">GitHub</a>
+                    </div>
+                </div>
+
+                <!-- Sections -->
+                <div class="section-viewport">
+                <div id="portfolio-content">
+                    <p class="section-subtitle">things I've built &amp; worked on</p>
                     <button class="linked-div" onclick="window.open('https://aisi.dev', '_blank')">
-                    <img src="media/AISI.png" alt="logo" class="image-placeholder">
+                        <img src="media/AISI.png" alt="logo" class="image-placeholder">
                         <div class="text-content">
                             <h3>AISI</h3>
-                            <p>
-                                AI Safety Initiative at Georgia Tech! We're a group of technical and policy
-                                researchers working to prevent catastrophic risks from advanced AI.
-                            </p>
+                            <p>AI Safety Initiative at Georgia Tech! We're a group of technical and policy researchers working to prevent catastrophic risks from advanced AI.</p>
                         </div>
                     </button>
                     <button class="linked-div">
                         <img src="media/SAE.png" alt="logo" class="image-placeholder">
                         <div class="text-content">
                             <h3>SAE Interp Research</h3>
-                            <p>
-                                Working with
-                                <a href="https://scholar.google.com/scholar?q=Stepan+Shabalin" target="_blank" rel="noopener noreferrer">
-                                    Stepan Shabalin
-                                </a>
-                                to apply SAEs for mech interp on VLAs.
-                            </p>
+                            <p>Working with <a href="https://scholar.google.com/scholar?q=Stepan+Shabalin" target="_blank" rel="noopener noreferrer">Stepan Shabalin</a> to apply SAEs for mech interp on VLAs.</p>
                         </div>
                     </button>
-<button class="linked-div"
-        onclick="window.open('https://gtvault-my.sharepoint.com/:w:/g/personal/rvaldes6_gatech_edu/IQA1tFpRaJviTo57Xgb9UWfsARTjkmaTL9HzeEDOWbh9IvU?e=Ffglsp', '_blank')">                        
-        <img src="media/USLegislation.png" alt="logo" class="image-placeholder">
+                    <button class="linked-div" onclick="window.open('https://gtvault-my.sharepoint.com/:w:/g/personal/rvaldes6_gatech_edu/IQA1tFpRaJviTo57Xgb9UWfsARTjkmaTL9HzeEDOWbh9IvU?e=Ffglsp', '_blank')">
+                        <img src="media/USLegislation.png" alt="logo" class="image-placeholder">
                         <div class="text-content">
                             <h3>US deepfake legislation</h3>
-                            <p>
-                                A paper analyzing US legislation trends around deepfakes in the 2020-2025 time period.
-                                Produced as my final artifact for INTA8000 under Prof. Margaret Kosal.
-                            </p>
+                            <p>A paper analyzing US legislation trends around deepfakes in the 2020-2025 time period. Produced as my final artifact for INTA8000 under Prof. Margaret Kosal.</p>
                         </div>
                     </button>
                     <button class="linked-div" onclick="openUp(this, '/personalizedwordcount/homepage.html')">
@@ -78,68 +83,160 @@
                             <p>A published Google Docs extension to allow for selective word counting.</p>
                         </div>
                     </button>
-                   
                 </div>
-                <div id="interests-content">
-                    <h2>Interests</h2>
-                    <div class="interests-grid">
-                        <div class="interest-item">
-                            <img src="/media/robotics.png" alt="Robotics">
-                            <p>Robotics</p>
-                        </div>
-                        <div class="interest-item">
-                            <img src="/media/mechInterp.png" alt="Interpretability">
-                            <p>Interpretability</p>
-                        </div>
-                        <div class="interest-item">
-                            <img src="/media/ailaw.png" alt="AI and Law">
-                            <p>Intersection of AI & Law</p>
-                        </div>
-                        <div class="interest-item">
-                            <img src="/media/motionplan.png" alt="Motion Planning">
-                            <p>Motion Planning</p>
-                        </div>
-                        <div class="interest-item">
-                            <img src="/media/compvision.png" alt="Computer visoin">
-                            <p>Computer Vision</p>
-                        </div>
-                        <div class="interest-item">
-                            <img src="/media/running.png" alt="Running">
-                            <p>Track & Field </p>
-                        </div>
-                        <div class="interest-item">
-                            <img src="/media/music.png" alt="Music Production">
-                            <p>Music Production</p>
-                        </div>
-                        <div class="interest-item">
-                            <img src="/media/scifi.png" alt="Sci-fi books">
-                            <p>Sci-fi Books</p>
-                        </div>
-                        <div class="interest-item">
-                            <img src="/media/gym.png" alt="Running">
-                            <p>Weightlifting </p>
-                        </div>
-                    </div>
-                </div>                
-                
+
+
                 <div id="about-me-content">
-                    <h2>About Me</h2>
-                    <img src="media/me.png" alt="me" class="profile-image">
-                    <p>Computer Science @ Georgia Tech, minoring in Law, Science and Technology.</p>
-<p>I'm very interested by AI systems, and even more interested in their governance, advocating for proper legislation and finding pathways to build responsibly. <br> Advanced AI will be transformative and it is crucial that it benefits all.</p>
-<br>
-<p><em>Currently: Co-Director AISI @ Georgia Tech; <br><br> Doing interpretability research on <br> vision-language-action models in the PAIR Lab.<br><br>Recently completed analysis of US deepfake<br> legislation trends (2020-2025) for INTA8000.</em></p>
-                </div>                
-                <div id="resume-content">
-                    <h2>Resume</h2>
-                    <a href="media/resume.pdf" target="_blank" >Download the PDF</a>
-                    <object data="media/resume.pdf" type="application/pdf" class="pdf">
-	                    <p> So sorry! The pdf failed to load, please another browser or download my resume above </p>
-                    </object>
+                    <img src="media/me.png" alt="Rocio PV" class="profile-image">
+                    <h2>Hey, I'm Rocio! <span class="pronunciation">think of the c as a th and you're good to go.</span></h2>
+                    <p>B.S./M.S. Computer Science @ Georgia Tech, minoring in Law, Science and Technology.</p>
+                    <p>I'm very interested by AI systems, and even more interested in their governance, advocating for proper legislation and finding pathways to build responsibly. Advanced AI will be transformative and it is crucial that it benefits all.</p>
+                    <p class="what-up-label">what I'm up to</p>
+                    <ul class="what-up">
+                        <li>Co-directing <a href="https://aisi.dev" target="_blank" rel="noopener noreferrer">AISI</a></li>
+                        <li>Incoming <a href="https://www.iaps.ai/" target="_blank" rel="noopener noreferrer">IAPS</a> Fellow</li>
+                        <li>Interpretability research on VLAs in the <a href="https://animesh.garg.tech/" target="_blank" rel="noopener noreferrer">PAIR Lab</a></li>
+                        <li class="wrapped-up">Wrapped up: AI@Academics internal strategy initiative under Provost Raheem Beyah</li>
+                    </ul>
+                    <p>I write about AI policy and safety on <a href="https://substack.com/@rociopv" target="_blank" rel="noopener noreferrer">Substack</a>.</p>
+                    <p>If you're at Tech and want to get involved in AI safety or just talk policy, feel free to reach out.</p>
                 </div>
-                
+
+                <div id="resume-content">
+                    <div class="resume-body">
+
+                        <div class="resume-section">
+                            <h3>Education</h3>
+                            <div class="resume-entry">
+                                <div class="resume-entry-header">
+                                    <span class="entry-title">Georgia Institute of Technology</span>
+                                    <span class="entry-date">May 2028</span>
+                                </div>
+                                <div class="entry-subtitle">B.S./M.S. Computer Science &nbsp;·&nbsp; Minor: Law, Science &amp; Technology</div>
+                                <div class="entry-note">Coursework: Data Structures &amp; Algorithms, Linear Algebra, Discrete Math, Intro to AI, Objects &amp; Design, Computer Organization &amp; Programming, Science Technology &amp; International Affairs</div>
+                            </div>
+                        </div>
+
+                        <div class="resume-section">
+                            <h3>Skills</h3>
+                            <div class="skills-list">
+                                <div><strong>Programming:</strong> Java, C++, Python, JavaScript, HTML/CSS</div>
+                                <div><strong>AI/ML:</strong> PyTorch, TensorFlow, YOLO, Autoencoders, Sparse Autoencoders (SAEs)</div>
+                                <div><strong>Robotics:</strong> ROS2, PID Control</div>
+                                <div><strong>Languages:</strong> English, Spanish, French (Conversational)</div>
+                            </div>
+                        </div>
+
+                        <div class="resume-section">
+                            <h3>Professional &amp; Research Experience</h3>
+                            <div class="resume-entry">
+                                <div class="resume-entry-header">
+                                    <span class="entry-title">Undergraduate Researcher — PAIR Lab, Georgia Tech</span>
+                                    <span class="entry-date">Nov 2025 – Present</span>
+                                </div>
+                                <ul>
+                                    <li>Conducting robotics interpretability research with Prof. Animesh Garg, applying Sparse Autoencoders (SAEs) to vision-language-action models under Stepan Shabalin</li>
+                                </ul>
+                            </div>
+                            <div class="resume-entry">
+                                <div class="resume-entry-header">
+                                    <span class="entry-title">ML Solutions Intern — ZeruDrones</span>
+                                    <span class="entry-date">Jun 2025 – Aug 2025</span>
+                                </div>
+                                <ul>
+                                    <li>Trained YOLO models on AWS GPU instances for electrical infrastructure anomaly detection</li>
+                                    <li>Integrated convolutional autoencoders for anomaly detection in powerline inspections</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="resume-section">
+                            <h3>Leadership &amp; Campus Involvement</h3>
+                            <div class="resume-entry">
+                                <div class="resume-entry-header">
+                                    <span class="entry-title">Chair — AI &amp; Student Body Subcommittee, Georgia Tech</span>
+                                    <span class="entry-date">Jan 2026 – Present</span>
+                                </div>
+                                <ul>
+                                    <li>Selected by Provost Raheem Beyah to chair subcommittee for Georgia Tech's institutional AI strategy</li>
+                                    <li>Deployed campus-wide survey collecting 1,000+ student responses on AI usage, concerns, and policy preferences</li>
+                                </ul>
+                            </div>
+                            <div class="resume-entry">
+                                <div class="resume-entry-header">
+                                    <span class="entry-title">Co-Director — AI Safety Initiative (AISI.dev)</span>
+                                    <span class="entry-date">Jan 2026 – Present</span>
+                                </div>
+                                <ul>
+                                    <li>Lead 15-person exec organization; manage $50k in external funding and Policy Fellowship curriculum (&lt;25% acceptance rate)</li>
+                                    <li>Led deepfake governance research under Dr. Margaret Kosal; invited to Anthropic Economic Futures Symposium</li>
+                                </ul>
+                            </div>
+                            <div class="resume-entry">
+                                <div class="resume-entry-header">
+                                    <span class="entry-title">Software Developer — RoboJackets, RoboCup SSL</span>
+                                    <span class="entry-date">Aug 2024 – Sept 2025</span>
+                                </div>
+                                <ul>
+                                    <li>Contributed to large-scale robotics software framework (C++/Linux/ROS2)</li>
+                                    <li>Led technical challenge implementation: 2nd place and 4th overall at RoboCup 2025 International</li>
+                                </ul>
+                            </div>
+                            <div class="entry-note" style="margin-top:4px;">Active Member: Kappa Alpha Theta, SHPE, Women@CollegeOfComputing</div>
+                        </div>
+
+                        <div class="resume-section">
+                            <h3>Awards &amp; Recognition</h3>
+                            <div class="resume-awards">
+                                <div class="award-row">
+                                    <span>Stamps Walk-On President's Scholarship — Georgia Tech</span>
+                                    <span class="entry-date">Mar 2026</span>
+                                </div>
+                                <div class="award-row">
+                                    <span>AI Safety, Ethics, and Society Course — Center for AI Safety</span>
+                                    <span class="entry-date">Nov 2025</span>
+                                </div>
+                                <div class="award-row">
+                                    <span>Economic Futures Symposium — Invited Guest, Anthropic</span>
+                                    <span class="entry-date">Sept 2025</span>
+                                </div>
+                                <div class="award-row">
+                                    <span>Pathfinder Fellow — Kairos</span>
+                                    <span class="entry-date">Aug 2025</span>
+                                </div>
+                                <div class="award-row">
+                                    <span>AI@ATL Hackathon Winner — 1st place, AI Safety track (Major League Hacking)</span>
+                                    <span class="entry-date">Oct 2024</span>
+                                </div>
+                                <div class="award-row">
+                                    <span>Academic Scholarship — Eastern Mediterranean International School</span>
+                                    <span class="entry-date">2022–2024</span>
+                                </div>
+                                <div class="award-row">
+                                    <span>SAT 1540/1600 — 800/800 Math</span>
+                                    <span class="entry-date">Mar 2023</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="resume-section">
+                            <h3>Interests</h3>
+                            <div class="skills-list">
+                                <div>Music production, weightlifting, soccer, concerts</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                </div><!-- /section-viewport -->
+
+                <div class="calendly-bar">
+                    <a href="https://calendly.com/rociomymail/30min" target="_blank" rel="noopener noreferrer">book a 15 min chat w me →</a>
+                </div>
+
             </div>
-        </div>
+</div>
     </div>
 </body>
 </html>

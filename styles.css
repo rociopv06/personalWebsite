@@ -1,189 +1,362 @@
 body, html {
-    font-family: monospace, system-ui;
+    font-family: "Times New Roman", Times, Georgia, serif;
     margin: 0;
-    color: antiquewhite;
     padding: 0;
     height: 100%;
     overflow: hidden;
-    cursor:url(/media/pixelCursor.png), auto;
-}
-.mobile-nav {
-    display: none;
-}
-.beside {
-    position: absolute;
-    font-family: monospace, system-ui;
-    flex-direction: column;
-    top: 10%;
-    left: 2%;
-    text-shadow: 0 0 10px rgb(200, 148, 62);
-    max-width: 40%;
-    scrollbar-width: thin;
-    scrollbar-color: #888 transparent;
+    background-color: #1a1710;
+    color: #1a1a1a;
 }
 
-.beside::-webkit-scrollbar {
-    width: 6px;
-}
+.mobile-header { display: none; }
+#mobile-menu { display: none; }
 
-.beside::-webkit-scrollbar-track {
-    background: transparent;
-}
+.beside { display: none; }
 
-.beside::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 10px;
-}
 
-.beside::-webkit-scrollbar-thumb:hover {
-    background: #555;
-}
-.social {
-    margin-top: 25px;
-    flex-direction: column;
-    height: 100px;
-    width: 100px;
-    border-radius: 5px;
+/* ── Layout ── */
+.background {
+    background-image: url('media/atlanta.jpg');
+    background-size: cover;
+    background-position: center center;
+    height: 100vh;
+    position: relative;
     overflow: hidden;
 }
 
-/* easily adjust Substack icon height here */
-.social.substack-icon {
-    height: 84px;
-    width: 84px;
-    display: block;
+.image-container {
+    position: absolute;
+    top: 4%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(70%, 960px);
+    height: 83%;
+    min-width: 560px;
 }
 
-a[href*="substack.com"] {
-    display: inline-block;
-    position: relative;
-    top: -8px;
-}
-.greeting {
-    font-size: 4em;
-    padding-bottom: 5%;
+.bg-caption {
+    position: absolute;
+    bottom: 14px;
+    left: 18px;
+    color: rgba(101, 67, 33, 0.75);
+    font-family: "Times New Roman", Times, Georgia, serif;
+    font-size: 0.78em;
+    font-style: italic;
+    margin: 0;
+    pointer-events: none;
+    z-index: 1;
 }
 
-.button {
-    text-shadow: 0 0 10px rgb(200, 148, 62);
-    display: block;
-    font-family: monospace, system-ui;
-    background: none;
-    color: rgb(238, 225, 207);
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    font-size: 3em;
-    margin: 5px 0;
+.mac-image { display: none; }
+
+/* ── Laptop screen content ── */
+.mac-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: perspective(1200px) rotateX(2deg) rotateY(1deg);
+    transform-origin: top left;
+    background-color: rgba(245, 230, 210, 0.93);
+    border-radius: 4px;
+    color: #1a1a1a;
+    padding: 12px 18px 40px;
+    overflow: hidden;
     text-align: left;
+    direction: rtl;
+    box-shadow: inset 0 0 60px rgba(0,0,0,0.12), 0 0 0 1px rgba(255,255,255,0.1);
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
 }
 
-.button:hover {
-    color: rgb(200, 148, 62);
+.section-viewport {
+    flex: 1;
+    overflow-y: auto;
+    min-height: 0;
+    scrollbar-width: thin;
+    scrollbar-color: #c49080 transparent;
+}
+
+.section-viewport::-webkit-scrollbar { width: 6px; }
+.section-viewport::-webkit-scrollbar-track { background: transparent; }
+.section-viewport::-webkit-scrollbar-thumb { background: #c49080; border-radius: 10px; }
+
+.mac-content > * { direction: ltr; }
+
+/* ── Screen header ── */
+.screen-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 2px solid rgba(0,0,0,0.15);
+    padding-bottom: 8px;
+    margin-bottom: 12px;
+    flex-shrink: 0;
+}
+
+.header-socials {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.screen-title {
+    font-family: "Times New Roman", Times, Georgia, serif;
+    font-size: 1.6em;
+    font-weight: 700;
+    color: #1a1a1a;
+    white-space: nowrap;
+    /* block outlined letter effect */
+    -webkit-text-stroke: 1px #1a1a1a;
+}
+
+.screen-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+}
+
+.screen-nav button {
+    font-family: "Times New Roman", Times, Georgia, serif;
+    background: none;
+    border: none;
+    color: #5a3a30;
+    font-size: 1.1em;
+    padding: 2px 10px;
+    cursor: pointer;
+    transition: transform 0.15s;
+}
+
+.screen-nav button:hover {
+    color: #1a1a1a;
     text-decoration: underline;
 }
 
-.background {
-    background-color: black;
-    height: 100vh;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-    position: relative;
+.social-link {
+    text-decoration: none;
+    color: #5a3a30;
+    font-family: "Times New Roman", Times, Georgia, serif;
+    font-size: 1em;
+    font-style: italic;
+    transition: opacity 0.15s;
+    white-space: nowrap;
 }
 
-.image-container {
-    position: relative;
-    height: 90%;
-    bottom: 5%;
-    max-width: 60%;
-}
+.social-link:hover { opacity: 0.65; text-decoration: underline; }
 
-.mac-image {
-    width: 100%;
-    height: 100%;
-    display: block;
-}
-
-.profile-image {
-    position: center;
-    top: 1%;
-    right: 2%;
-    width: 30%;
-    margin-bottom: 20px;
-}
-
-.mac-content {
-    transform: rotateZ(357deg);
-    transform: skew(5deg);
-    box-shadow: 0 0 3px white;
-    position: absolute;
-    top: 2%;
-    left: 5.5%;
-    width: 96.5%;
-    height: 84.2%;
-    background-color: whitesmoke;
-    border-radius: 2%;
-    color: rgb(0, 0, 0);
-    padding: 20px;
-    overflow-y: hidden;
-    text-align: center;
-    direction: rtl;
-}
-
-.mac-content > * {
-    direction: ltr;
-}
-
-.mac-content.portfolio-active {
-    overflow-y: scroll;
-    scrollbar-width: thin;
-    scrollbar-color: #888 transparent;
-}
-
-.mac-content.portfolio-active::-webkit-scrollbar {
-    width: 6px;
-}
-
-.mac-content.portfolio-active::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-.mac-content.portfolio-active::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 10px;
-}
-
-.mac-content.portfolio-active::-webkit-scrollbar-thumb:hover {
-    background: #555;
-}
-
+/* ── Sections ── */
 #portfolio-content,
 #interests-content,
-#resume-content, #about-me-content {
-    font-family: monospace, system-ui;
+#resume-content,
+#about-me-content {
+    font-family: "Times New Roman", Times, Georgia, serif;
     display: none;
     height: auto;
     max-width: 98%;
 }
 
-#portfolio-content {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
+#about-me-content { display: block; }
 
-#portfolio-content .linked-div {
-    flex: 1;
-    min-height: 0;
-    margin: 0 auto;
-    width: 90%;
-}
-
-#about-me-content {
+#interests-content.active {
     display: block;
-    height: auto;
+    height: calc(100% - 52px);
+}
+
+.collage-subtitle {
+    font-family: "Times New Roman", Times, Georgia, serif;
+    font-size: 0.95em;
+    font-style: italic;
+    color: #5a3a30;
+    margin: 0 0 6px 2px;
+}
+
+#portfolio-content.active-flex {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr 1fr;
+    gap: 10px;
+    padding: 2px 0;
+}
+
+#portfolio-content.active-flex .section-subtitle {
+    grid-column: 1 / -1;
+    margin: 0;
+}
+
+#portfolio-content.active-flex .linked-div {
+    flex-direction: row;
+    align-items: center;
+    margin: 0;
+    width: 100%;
+    padding: 12px;
+    overflow: hidden;
+    min-height: 0;
+    background: #fdf6f0;
+    border-radius: 6px;
+    border: 1px solid rgba(90,58,48,0.12);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: box-shadow 0.2s, transform 0.2s;
+    box-sizing: border-box;
+}
+
+#portfolio-content.active-flex .linked-div:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.14);
+}
+
+#portfolio-content.active-flex .image-placeholder {
+    width: 64px;
+    height: 64px;
+    flex-shrink: 0;
+    border-radius: 6px;
+    margin: 0 12px 0 0;
+    object-fit: contain;
+    padding: 8px;
+    box-sizing: border-box;
+    background-color: #f5ede4;
+}
+
+#portfolio-content.active-flex .text-content {
+    overflow: hidden;
+    flex: 1;
+}
+
+#portfolio-content.active-flex .linked-div h3 {
+    font-size: 0.9em;
+    white-space: normal;
+    margin: 0 0 4px 0;
+}
+
+#portfolio-content.active-flex .linked-div p {
+    font-size: 0.76em;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    color: #5a3a30;
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* ── About Me ── */
+#about-me-content h2 {
+    font-size: 2em;
+    font-weight: 700;
+    -webkit-text-stroke: 1px #1a1a1a;
+    margin-bottom: 10px;
+}
+
+#about-me-content p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin-bottom: 6px;
+}
+
+#about-me-content a {
+    color: #5a3a30;
+    text-decoration: underline;
+}
+
+.section-subtitle {
+    font-family: "Times New Roman", Times, Georgia, serif;
+    font-size: 1em;
+    font-style: italic;
+    color: #5a3a30;
+    margin: 0 0 10px 2px;
+}
+
+.what-up-label {
+    font-size: 1em;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 14px 0 4px 0;
+}
+
+.what-up {
+    margin: 0 0 10px 0;
+    padding-left: 18px;
+    font-size: 1.1em;
+    line-height: 1.75;
+}
+
+.what-up li { margin-bottom: 2px; }
+.what-up a { color: #5a3a30; }
+
+.wrapped-up {
+    color: #8a7060;
+    font-size: 0.92em;
+}
+
+.profile-image {
+    width: 110px;
+    height: 110px;
+    object-fit: cover;
+    object-position: top center;
+    border-radius: 4px;
+    float: left;
+    margin-right: 16px;
+    margin-bottom: 10px;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+    background-color: #b8d4e9;
+}
+
+.pronunciation {
+    font-size: 0.46em;
+    font-weight: 400;
+    color: #5a3a30;
+    -webkit-text-stroke: 0;
+    letter-spacing: 0.01em;
+    white-space: normal;
+    display: block;
+    line-height: 1.4;
+    margin-top: 2px;
+}
+
+/* ── Calendly bar ── */
+.calendly-bar {
+    position: absolute;
+    bottom: 10px;
+    right: 14px;
+    z-index: 20;
+}
+
+.calendly-bar a {
+    font-family: "Times New Roman", Times, Georgia, serif;
+    font-size: 0.85em;
+    font-style: italic;
+    color: #5a3a30;
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    background: rgba(245, 230, 210, 0.95);
+    border: 1px solid rgba(90,58,48,0.2);
+    border-radius: 20px;
+    padding: 5px 13px;
+    white-space: nowrap;
+    box-shadow: 1px 2px 6px rgba(0,0,0,0.12);
+    display: inline-block;
+}
+
+.calendly-bar a:hover {
+    background: rgba(235, 215, 195, 1);
+    text-decoration: none;
+}
+
+/* ── Resume ── */
+#resume-content h2 {
+    font-size: 2em;
+    font-weight: 700;
+    -webkit-text-stroke: 1px #1a1a1a;
+    margin-bottom: 10px;
+}
+
+#resume-content a {
+    font-family: "Times New Roman", Times, Georgia, serif;
+    font-size: 1.2em;
+    color: #5a3a30;
+    display: block;
+    margin-bottom: 10px;
 }
 
 .pdf {
@@ -191,230 +364,484 @@ a[href*="substack.com"] {
     width: 90%;
 }
 
+/* ── Portfolio cards ── */
 .linked-div {
     width: 90%;
-    margin: 10px auto;
-    padding: 10px;
-    background-color: whitesmoke;
+    margin: 6px auto;
+    padding: 10px 14px;
+    background-color: #fdf6f0;
     border: none;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.15);
     text-align: left;
     display: flex;
     align-items: center;
     cursor: pointer;
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
-    color: inherit;
-    min-height: 80px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    color: #1a1a1a;
+    min-height: 70px;
     overflow: hidden;
 }
 
 .linked-div:hover {
-    box-shadow: 0 0 20px rgb(14, 13, 12);
-    transform: scale(1.05);
+    transform: rotate(-0.5deg) scale(1.02);
+    box-shadow: 3px 5px 14px rgba(0,0,0,0.2);
 }
 
 .image-placeholder {
-    width: 100px;
-    height: 100px;
-    background-color: #ddd;
-    border-radius: 10px;
-    margin-right: 15px;
+    width: 70px;
+    height: 70px;
+    background-color: #e8d0c4;
+    border-radius: 6px;
+    margin-right: 14px;
     object-fit: cover;
+    flex-shrink: 0;
 }
 
 .text-content {
-    font-family: monospace, system-ui;
+    font-family: "Times New Roman", Times, Georgia, serif;
     flex: 1;
     min-width: 0;
 }
 
 .linked-div h3 {
-    margin: 10px 0;
-    color: #333;
+    margin: 4px 0;
+    color: #1a1a1a;
     font-size: 1.2em;
+    font-weight: 700;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
 .linked-div p {
-    color: #666;
-    font-size: 0.9em;
+    color: #5a3a30;
+    font-size: 1em;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-line-clamp: 2;
+    line-clamp: 2;
     -webkit-box-orient: vertical;
 }
-.interests-grid {
-    display: grid;
-    gap: 1%;
-    justify-content: center;
-    grid-template-columns: repeat(3, 30%);
-  }
-  .interest-item {
-    width: 150px;
-    text-align: center;
-}
-.interest-item img {
+
+.linked-div p a { color: #8a4a38; }
+
+/* ── Tabletop collage ── */
+.collage {
+    position: relative;
     width: 100%;
-    height: 60%; 
+    height: 100%;
+    overflow: hidden;
+    background: #8B6240;
+    background-image:
+        repeating-linear-gradient(92deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px),
+        repeating-linear-gradient(180deg, rgba(255,255,255,0.015) 0px, rgba(255,255,255,0.015) 1px, transparent 1px, transparent 8px);
+    border-radius: 3px;
+    box-shadow: inset 0 0 30px rgba(0,0,0,0.25);
+}
+
+.collage-item {
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    width: var(--w);
+    height: var(--h);
+    z-index: var(--z);
+    transform: rotate(var(--r));
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.35);
+    border: 3px solid white;
+    border-radius: 2px;
+    overflow: hidden;
+    transition: transform 0.2s, z-index 0s, box-shadow 0.2s;
+    cursor: default;
+}
+
+.collage-item:hover {
+    transform: rotate(var(--r)) scale(1.08);
+    z-index: 99;
+    box-shadow: 6px 8px 20px rgba(0,0,0,0.5);
+}
+
+.collage-item img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    border-radius: 12px;
     display: block;
 }
 
+.collage-item span {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.72));
+    color: white;
+    font-size: 10px;
+    font-style: italic;
+    padding: 18px 5px 5px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.collage-item:hover span { opacity: 1; }
+
+/* ── Resume HTML ── */
+.resume-download {
+    margin-bottom: 12px;
+}
+
+.resume-download a {
+    font-family: "Times New Roman", Times, Georgia, serif;
+    font-size: 1em;
+    color: #5a3a30;
+    text-decoration: none;
+}
+
+.resume-download a:hover { text-decoration: underline; }
+
+.resume-body {
+    font-family: "Times New Roman", Times, Georgia, serif;
+    color: #1a1a1a;
+    font-size: 0.95em;
+    line-height: 1.5;
+}
+
+.resume-section {
+    margin-bottom: 14px;
+    border-bottom: 1px solid rgba(0,0,0,0.15);
+    padding-bottom: 10px;
+}
+
+.resume-section:last-child { border-bottom: none; }
+
+.resume-section h3 {
+    font-size: 1em;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #1a1a1a;
+    margin: 0 0 8px 0;
+    -webkit-text-stroke: 0.4px #1a1a1a;
+}
+
+.resume-entry {
+    margin-bottom: 10px;
+}
+
+.resume-entry:last-child { margin-bottom: 0; }
+
+.resume-entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+.entry-title {
+    font-weight: 700;
+    font-size: 0.95em;
+}
+
+.entry-date {
+    font-style: italic;
+    color: #5a3a30;
+    font-size: 0.85em;
+    white-space: nowrap;
+}
+
+.entry-subtitle {
+    font-style: italic;
+    color: #3a2a20;
+    font-size: 0.9em;
+    margin-top: 2px;
+}
+
+.entry-note {
+    color: #5a3a30;
+    font-size: 0.85em;
+    font-style: italic;
+    margin-top: 3px;
+}
+
+.resume-entry ul {
+    margin: 4px 0 0 0;
+    padding-left: 18px;
+}
+
+.resume-entry ul li {
+    margin-bottom: 3px;
+    font-size: 0.9em;
+    color: #2a1a10;
+}
+
+.skills-list {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    font-size: 0.9em;
+}
+
+.resume-awards {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.award-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 4px;
+    font-size: 0.9em;
+    border-bottom: 1px dashed rgba(0,0,0,0.1);
+    padding-bottom: 4px;
+}
+
+.award-row:last-child { border-bottom: none; }
+
+/* ── Tablet / small laptop ── */
+@media screen and (max-width: 1024px) and (min-width: 769px) {
+    .image-container {
+        width: min(86%, 960px);
+        top: 3%;
+        height: 92%;
+    }
+
+    .screen-title { font-size: 1.3em; }
+    .screen-nav button { font-size: 0.95em; padding: 2px 7px; }
+    .social-link { font-size: 0.88em; }
+
+    #about-me-content h2 { font-size: 1.6em; }
+    #about-me-content p { font-size: 1.05em; }
+
+    .linked-div h3 { font-size: 1.05em; }
+    .linked-div p { font-size: 0.9em; }
+
+    .resume-body { font-size: 0.88em; }
+}
+
+/* ── Mobile ── */
 @media screen and (max-width: 768px) {
     body, html {
         overflow: auto;
-    }
-
-    .background {
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: center;
         height: auto;
     }
 
-    .social {
-        width: 20px;
-        height: 20px;
-        margin: 3px;
+    .background {
+        background-image: none;
+        background-color: #1a1710;
+        height: auto;
+        min-height: 100vh;
+        padding-top: 52px;
     }
 
-    .mobile-nav {
+    /* Fixed top bar */
+    .mobile-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
         position: fixed;
-        top: 20px;
-        right: 20px;
+        top: 0;
+        left: 0;
+        right: 0;
         z-index: 1000;
-        display: none;
-        flex-direction: column;
-        align-items: flex-end;
+        padding: 12px 18px;
+        background-color: #1a1710;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .mobile-title {
+        font-family: "Times New Roman", Times, Georgia, serif;
+        font-size: 1.35em;
+        font-weight: 700;
+        color: antiquewhite;
+        letter-spacing: 0.01em;
     }
 
     #hamburger {
-        font-size: 2em;
+        font-size: 1.5em;
         cursor: pointer;
-        background: #111;
-        color: white;
-        padding: 10px;
-        border-radius: 5px;
+        color: antiquewhite;
+        padding: 2px 6px;
+        font-family: "Times New Roman", Times, Georgia, serif;
+        user-select: none;
     }
 
+    /* Full-width dropdown menu */
     #mobile-menu {
-        display: none;
-        background: rgba(0, 0, 0, 0.95);
-        padding: 10px;
-        border-radius: 10px;
-        margin-top: 5px;
+        position: fixed;
+        top: 52px;
+        left: 0;
+        right: 0;
+        z-index: 999;
+        background: #f2c4b0;
+        padding: 12px 18px 16px;
         flex-direction: column;
-        gap: 10px;
+        gap: 0;
+        border-bottom: 1.5px solid rgba(0,0,0,0.15);
+        box-shadow: 0 6px 16px rgba(0,0,0,0.25);
     }
 
     #mobile-menu button {
-        background: #333;
-        color: white;
+        background: none;
+        color: #1a1a1a;
         border: none;
-        padding: 10px;
-        font-size: 1em;
-        border-radius: 5px;
-        width: 150px;
+        border-bottom: 1px solid rgba(0,0,0,0.08);
+        padding: 10px 0;
+        font-size: 1.1em;
+        font-family: "Times New Roman", Times, Georgia, serif;
         text-align: left;
-    }
-
-    .beside {
-        position: relative;
+        cursor: pointer;
         width: 100%;
-        text-align: center;
-        padding: 20px;
     }
 
-    .greeting {
-        z-index: 1;
-        position: relative;
-        font-size: 2em;
+    #mobile-menu button:last-of-type { border-bottom: none; }
+    #mobile-menu button:hover { color: #5a3a30; }
+
+    .menu-socials {
+        display: flex;
+        gap: 18px;
+        padding-top: 10px;
+        margin-top: 4px;
+        border-top: 1px solid rgba(0,0,0,0.12);
     }
 
-    .button {
-        font-size: 1.5em;
-        text-align: center;
+    .menu-socials .social-link {
+        color: #5a3a30;
+        font-size: 0.95em;
     }
 
-    .social {
-        flex-direction: row;
-        width: 60px;
-        height: 60px;
-        margin: 10px;
-    }
+    .screen-header { display: none; }
 
     .image-container {
         position: static;
         width: 100%;
         height: auto;
+        max-width: 100%;
     }
 
-    .mac-image {
-        width: 100%;
-        height: auto;
-    }
+    .mac-image { display: none; }
 
     .mac-content {
         position: static;
         transform: none;
         width: 100%;
+        box-sizing: border-box;
         height: auto;
-        margin: 20px auto;
-        border-radius: 10px;
-        padding: 15px;
+        min-height: calc(100vh - 52px);
+        border-radius: 0;
+        padding: 20px 18px 48px;
+        overflow-y: auto;
+        direction: ltr;
+        text-align: left;
+        background-image:
+            repeating-linear-gradient(
+                transparent,
+                transparent 27px,
+                rgba(0,0,0,0.07) 27px,
+                rgba(0,0,0,0.07) 28px
+            );
     }
+
+    .mac-content.portfolio-active { overflow-y: visible; }
+
+    /* About me visible by default on mobile */
+    #about-me-content { display: block; }
+
+    /* Portfolio only shows when active */
+    #portfolio-content { display: none; }
+    #portfolio-content.active-flex {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        height: auto;
+    }
+
+    #portfolio-content.active-flex .linked-div {
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+        margin: 0;
+        padding: 10px;
+        overflow: hidden;
+        min-height: 0;
+        box-sizing: border-box;
+    }
+
+    #portfolio-content.active-flex .image-placeholder {
+        width: 52px;
+        height: 52px;
+        flex-shrink: 0;
+        border-radius: 5px;
+        margin: 0 10px 0 0;
+        object-fit: contain;
+        padding: 6px;
+        box-sizing: border-box;
+        background-color: #f5ede4;
+    }
+
+    #portfolio-content.active-flex .text-content { overflow: hidden; flex: 1; }
+    #portfolio-content.active-flex .linked-div h3 { font-size: 0.82em; white-space: normal; margin: 0 0 3px; }
+    #portfolio-content.active-flex .linked-div p { font-size: 0.72em; margin: 0; }
+
+    /* Ensure about-me scrolls with extra text */
+    #about-me-content p { margin-bottom: 10px; }
+    .bg-caption { display: none; }
+
+    .calendly-bar {
+        position: fixed;
+        bottom: 14px;
+        right: 14px;
+        left: auto;
+        z-index: 1001;
+    }
+
+    .mac-content { padding-bottom: 52px; }
+
+    #interests-content,
+    #resume-content {
+        display: none;
+        height: auto;
+    }
+
+    #interests-content.active {
+        display: block;
+        height: 72vw;
+        min-height: 320px;
+    }
+
+    #interests-content .collage { height: 100%; }
 
     .linked-div {
-        flex-direction: column;
+        width: 100%;
+        margin: 0;
+        flex-direction: row;
         align-items: center;
-        text-align: center;
         height: auto;
+        min-height: 70px;
     }
 
-    .image-placeholder {
-        margin: 0 0 10px 0;
-        width: 80px;
-        height: 80px;
-    }
-
-    .linked-div h3 {
-        font-size: 1em;
-    }
-
-    .linked-div p {
-        font-size: 0.85em;
-    }
+    .image-placeholder { width: 60px; height: 60px; }
 
     .profile-image {
-        width: 60%;
+        width: 38%;
+        float: left;
+        margin-right: 12px;
+        margin-left: 0;
     }
 
-    .interests-grid {
-        flex-direction: column;
-        align-items: center;
-    }
+    #about-me-content h2 { font-size: 1.6em; }
+    #about-me-content p { font-size: 1.05em; }
 
-    .interest-item {
-        width: 80%;
-    }
-    
+    .resume-body { font-size: 0.88em; }
+    .entry-title { font-size: 0.9em; }
+
     .pdf {
         width: 100%;
         min-height: 500px;
-    }
-    .mac-image {
-        display: none;
-    }
-
-    .mac-content {
-        border-radius: 0;
-        width: 100%;
-        transform: none;
-        position: static;
     }
 }

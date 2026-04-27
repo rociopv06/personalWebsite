@@ -1,36 +1,52 @@
 document.addEventListener("DOMContentLoaded", function () {
+    const dateEl = document.getElementById("receipt-date");
+    if (dateEl) {
+        const now = new Date();
+        dateEl.textContent = now.toLocaleDateString("en-US", { month: "2-digit", day: "2-digit", year: "numeric" })
+            + "  " + now.toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit" });
+    }
+
     const hamburger = document.getElementById("hamburger");
     const menu = document.getElementById("mobile-menu");
-    const nav = document.querySelector(".mobile-nav");
 
-    hamburger.addEventListener("click", () => {
+    hamburger.addEventListener("click", (e) => {
+        e.stopPropagation();
         menu.style.display = menu.style.display === "flex" ? "none" : "flex";
     });
 
-    window.addEventListener("scroll", () => {
-        const threshold = document.querySelector(".greeting")?.offsetTop || 200;
-        if (window.scrollY > threshold) {
-            nav.style.display = "flex";
-        } else {
-            nav.style.display = "none";
+    document.addEventListener("click", (e) => {
+        const header = document.getElementById("mobile-header");
+        if (header && !header.contains(e.target) && !menu.contains(e.target)) {
             menu.style.display = "none";
         }
     });
-
 });
+
+function closeMenu() {
+    const menu = document.getElementById("mobile-menu");
+    if (menu) menu.style.display = "none";
+}
+
 function showSection(section) {
-    const sections = ['portfolio', 'interests', 'about-me', 'resume'];
+    const sections = ['portfolio', 'about-me', 'resume'];
     sections.forEach(id => {
-        const element = document.getElementById(`${id}-content`);
-        if (element) {
-            element.style.display = (id === section) ? 'block' : 'none';
+        const el = document.getElementById(`${id}-content`);
+        if (!el) return;
+        if (id === section) {
+            el.style.display = 'block';
+            if (id === 'portfolio') el.classList.add('active-flex');
+        } else {
+            el.style.display = 'none';
+            if (id === 'portfolio') el.classList.remove('active-flex');
         }
     });
     const macContent = document.querySelector('.mac-content');
     if (macContent) {
         macContent.classList.toggle('portfolio-active', section === 'portfolio');
+        macContent.classList.toggle('scrollable', section === 'about-me' || section === 'resume');
     }
 }
+
 function openUp(el, webpage) {
     const clone = el.cloneNode(true);
     clone.classList.add("expanded");
@@ -56,6 +72,5 @@ function openUp(el, webpage) {
     });
     setTimeout(() => {
         window.location.href = webpage;
-        }, 800);
+    }, 800);
 }
-
