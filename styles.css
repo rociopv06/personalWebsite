@@ -627,7 +627,8 @@ body, html {
 /* ── Mobile ── */
 @media screen and (max-width: 768px) {
     body, html {
-        overflow: auto;
+        overflow-x: hidden;
+        overflow-y: auto;
         height: auto;
     }
 
@@ -637,6 +638,7 @@ body, html {
         height: auto;
         min-height: 100vh;
         padding-top: 52px;
+        overflow: visible;
     }
 
     /* Fixed top bar */
@@ -717,11 +719,20 @@ body, html {
 
     .screen-header { display: none; }
 
+    .section-viewport {
+        flex: none;
+        overflow-y: visible;
+        min-height: auto;
+    }
+
     .image-container {
         position: static;
         width: 100%;
         height: auto;
         max-width: 100%;
+        min-width: 0;
+        transform: none;
+        left: auto;
     }
 
     .mac-image { display: none; }
@@ -738,13 +749,9 @@ body, html {
         overflow-y: auto;
         direction: ltr;
         text-align: left;
-        background-image:
-            repeating-linear-gradient(
-                transparent,
-                transparent 27px,
-                rgba(0,0,0,0.07) 27px,
-                rgba(0,0,0,0.07) 28px
-            );
+        background: #faf9f7;
+        background-image: none;
+        box-shadow: none;
     }
 
     .mac-content.portfolio-active { overflow-y: visible; }
@@ -756,7 +763,7 @@ body, html {
     #portfolio-content { display: none; }
     #portfolio-content.active-flex {
         display: grid !important;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
         gap: 10px;
         height: auto;
     }
@@ -766,27 +773,27 @@ body, html {
         align-items: center;
         width: 100%;
         margin: 0;
-        padding: 10px;
+        padding: 12px 14px;
         overflow: hidden;
         min-height: 0;
         box-sizing: border-box;
     }
 
     #portfolio-content.active-flex .image-placeholder {
-        width: 52px;
-        height: 52px;
+        width: 60px;
+        height: 60px;
         flex-shrink: 0;
         border-radius: 5px;
-        margin: 0 10px 0 0;
+        margin: 0 14px 0 0;
         object-fit: contain;
-        padding: 6px;
+        padding: 7px;
         box-sizing: border-box;
         background-color: #f5ede4;
     }
 
     #portfolio-content.active-flex .text-content { overflow: hidden; flex: 1; }
-    #portfolio-content.active-flex .linked-div h3 { font-size: 0.82em; white-space: normal; margin: 0 0 3px; }
-    #portfolio-content.active-flex .linked-div p { font-size: 0.72em; margin: 0; }
+    #portfolio-content.active-flex .linked-div h3 { font-size: 0.92em; white-space: normal; margin: 0 0 4px; }
+    #portfolio-content.active-flex .linked-div p { font-size: 0.82em; margin: 0; }
 
     /* Ensure about-me scrolls with extra text */
     #about-me-content p { margin-bottom: 10px; }
@@ -828,9 +835,10 @@ body, html {
     .image-placeholder { width: 60px; height: 60px; }
 
     .profile-image {
-        width: 38%;
+        width: 100px;
+        height: 100px;
         float: left;
-        margin-right: 12px;
+        margin-right: 14px;
         margin-left: 0;
     }
 
