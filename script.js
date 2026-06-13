@@ -32,19 +32,8 @@ function showSection(section) {
     sections.forEach(id => {
         const el = document.getElementById(`${id}-content`);
         if (!el) return;
-        if (id === section) {
-            el.style.display = 'block';
-            if (id === 'portfolio') el.classList.add('active-flex');
-        } else {
-            el.style.display = 'none';
-            if (id === 'portfolio') el.classList.remove('active-flex');
-        }
+        el.style.display = id === section ? 'block' : 'none';
     });
-    const macContent = document.querySelector('.mac-content');
-    if (macContent) {
-        macContent.classList.toggle('portfolio-active', section === 'portfolio');
-        macContent.classList.toggle('scrollable', section === 'about-me' || section === 'resume');
-    }
 }
 
 function openUp(el, webpage) {

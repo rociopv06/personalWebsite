@@ -20,7 +20,7 @@
         <!-- Mobile dropdown menu -->
         <div id="mobile-menu">
             <button onclick="showSection('about-me'); closeMenu()">About</button>
-            <button onclick="showSection('portfolio'); closeMenu()">Portfolio</button>
+            <button onclick="showSection('portfolio'); closeMenu()">Cabinet</button>
             <button onclick="showSection('resume'); closeMenu()">Resume</button>
             <div class="menu-socials">
                 <a href="https://www.linkedin.com/in/rocio-pv/" target="_blank" class="social-link">LinkedIn</a>
@@ -41,7 +41,7 @@
                     <span class="screen-title">Rocio PV</span>
                     <nav class="screen-nav">
                         <button onclick="showSection('about-me')">> About me</button>
-                        <button onclick="showSection('portfolio')">> Portfolio</button>
+                        <button onclick="showSection('portfolio')">> Cabinet</button>
                         <button onclick="showSection('resume')">> Resume</button>
                     </nav>
                     <div class="header-socials">
@@ -54,12 +54,15 @@
                 <!-- Sections -->
                 <div class="section-viewport">
                 <div id="portfolio-content">
-                    <p class="section-subtitle">things I've built &amp; worked on</p>
+                    <p class="section-subtitle">a collection of things I've worked on and things I keep coming back to</p>
+
+                    <p class="shelf-label">things i've worked on</p>
+                    <div class="projects-grid">
                     <button class="linked-div" onclick="window.open('https://aisi.dev', '_blank')">
                         <img src="media/AISI.png" alt="logo" class="image-placeholder">
                         <div class="text-content">
                             <h3>AISI</h3>
-                            <p>AI Safety Initiative at Georgia Tech! We're a group of technical and policy researchers working to prevent catastrophic risks from advanced AI.</p>
+                            <p>Leading foundational research on the world's most transformative technology to ensure it is beneficial.</p>
                         </div>
                     </button>
                     <button class="linked-div">
@@ -83,6 +86,27 @@
                             <p>A published Google Docs extension to allow for selective word counting.</p>
                         </div>
                     </button>
+                    </div>
+
+                    <p class="shelf-label">reads i recommend</p>
+                    <ul class="book-list">
+                        <li><span class="book-title">Maribel y la Extraña Familia</span> <span class="book-author">- Miguel Mihura</span></li>
+                        <li><span class="book-title">Luces de Bohemia</span> <span class="book-author">- Ramón del Valle-Inclán</span></li>
+                        <li><span class="book-title">Liking What You See: A Documentary</span> <span class="book-author">- Ted Chiang</span></li>
+                        <li><span class="book-title">The Case Against Perfection</span> <span class="book-author">- Michael J. Sandel</span></li>
+                        <li><span class="book-title">Brave New World</span> <span class="book-author">- Aldous Huxley</span></li>
+                        <li><span class="book-title">Agresividad y Derecho</span> <span class="book-author">- Pedro Rocamora García-Valls</span></li>
+                    </ul>
+
+                    <p class="shelf-label">sources i use to keep up</p>
+                    <div class="shelf-news">
+                        <a href="" target="_blank" rel="noopener noreferrer" class="news-pill">Transformers</a>
+                        <a href="" target="_blank" rel="noopener noreferrer" class="news-pill">Zvi (Don't Worry About the Vase)</a>
+                        <a href="" target="_blank" rel="noopener noreferrer" class="news-pill">Jasmine Sun</a>
+                        <a href="" target="_blank" rel="noopener noreferrer" class="news-pill">The Information: AI Agenda</a>
+                        <a href="" target="_blank" rel="noopener noreferrer" class="news-pill">The Attack Surface — IAPS</a>
+                        <span class="news-pill news-pill--ghost">+ frontier labs' blogs &amp; ai discussion on X</span>
+                    </div>
                 </div>
 
 
@@ -100,7 +124,7 @@
                         <li class="wrapped-up">Wrapped up: AI@Academics internal strategy initiative under Provost Raheem Beyah</li>
                     </ul>
                     <p>Check out some of my thoughts on the future with advanced AI future and its implications on <a href="https://substack.com/@rociopv" target="_blank" rel="noopener noreferrer">Substack</a></p>
-                    <p>If you're at Tech and want to get involved in AI safety, come to our next <a href="https://aisi.dev/#block-yui_3_17_2_1_1778782455828_15157">event</a> and feel free to <a href="mailto:board@aisi.dev?subject=Reaching%20out%20to%20%7BINSERT%20YOUR%20QUESTION%20HERE%7D%20%5BFrom%20Rocio's%20website%5D">reach out!</a></p>
+                    <p>If you're at Tech and want to get involved with AISI, come to our next <a href="https://aisi.dev/#block-yui_3_17_2_1_1778782455828_15157">event</a> and feel free to <a href="mailto:board@aisi.dev?subject=Reaching%20out%20to%20%7BINSERT%20YOUR%20QUESTION%20HERE%7D%20%5BFrom%20Rocio's%20website%5D">reach out!</a></p>
                 </div>
 
                 <div id="resume-content">
@@ -132,7 +156,7 @@
                             <h3>Professional &amp; Research Experience</h3>
                             <div class="resume-entry">
                                 <div class="resume-entry-header">
-                                    <span class="entry-title">Undergraduate Researcher — PAIR Lab, Georgia Tech</span>
+                                    <span class="entry-title">Undergraduate Researcher | PAIR Lab, Georgia Tech</span>
                                     <span class="entry-date">Nov 2025 – Present</span>
                                 </div>
                                 <ul>
@@ -141,7 +165,7 @@
                             </div>
                             <div class="resume-entry">
                                 <div class="resume-entry-header">
-                                    <span class="entry-title">ML Solutions Intern — ZeruDrones</span>
+                                    <span class="entry-title">ML Solutions Intern | ZeruDrones</span>
                                     <span class="entry-date">Jun 2025 – Aug 2025</span>
                                 </div>
                                 <ul>
@@ -155,7 +179,7 @@
                             <h3>Leadership &amp; Campus Involvement</h3>
                             <div class="resume-entry">
                                 <div class="resume-entry-header">
-                                    <span class="entry-title">Chair — AI &amp; Student Body Subcommittee, Georgia Tech</span>
+                                    <span class="entry-title">Chair | AI &amp; Student Body Subcommittee, Georgia Tech</span>
                                     <span class="entry-date">Jan 2026 – Present</span>
                                 </div>
                                 <ul>
@@ -165,7 +189,7 @@
                             </div>
                             <div class="resume-entry">
                                 <div class="resume-entry-header">
-                                    <span class="entry-title">Co-Director — AI Safety Initiative (AISI.dev)</span>
+                                    <span class="entry-title">Co-Director | AI Safety Initiative (AISI.dev)</span>
                                     <span class="entry-date">Jan 2026 – Present</span>
                                 </div>
                                 <ul>
@@ -175,7 +199,7 @@
                             </div>
                             <div class="resume-entry">
                                 <div class="resume-entry-header">
-                                    <span class="entry-title">Software Developer — RoboJackets, RoboCup SSL</span>
+                                    <span class="entry-title">Software Developer | RoboJackets, RoboCup SSL</span>
                                     <span class="entry-date">Aug 2024 – Sept 2025</span>
                                 </div>
                                 <ul>
@@ -190,32 +214,28 @@
                             <h3>Awards &amp; Recognition</h3>
                             <div class="resume-awards">
                                 <div class="award-row">
-                                    <span>Stamps Walk-On President's Scholarship — Georgia Tech</span>
+                                    <span>Stamps Walk-On President's Scholarship | Georgia Tech</span>
                                     <span class="entry-date">Mar 2026</span>
                                 </div>
                                 <div class="award-row">
-                                    <span>AI Safety, Ethics, and Society Course — Center for AI Safety</span>
+                                    <span>AI Safety, Ethics, and Society Course | Center for AI Safety</span>
                                     <span class="entry-date">Nov 2025</span>
                                 </div>
                                 <div class="award-row">
-                                    <span>Economic Futures Symposium — Invited Guest, Anthropic</span>
+                                    <span>Economic Futures Symposium | Invited Guest, Anthropic</span>
                                     <span class="entry-date">Sept 2025</span>
                                 </div>
                                 <div class="award-row">
-                                    <span>Pathfinder Fellow — Kairos</span>
+                                    <span>Pathfinder Fellow | Kairos</span>
                                     <span class="entry-date">Aug 2025</span>
                                 </div>
                                 <div class="award-row">
-                                    <span>AI@ATL Hackathon Winner — 1st place, AI Safety track (Major League Hacking)</span>
+                                    <span>AI@ATL Hackathon Winner | 1st place, AI Safety track (Major League Hacking)</span>
                                     <span class="entry-date">Oct 2024</span>
                                 </div>
                                 <div class="award-row">
-                                    <span>Academic Scholarship — Eastern Mediterranean International School</span>
+                                    <span>Academic Scholarship | Eastern Mediterranean International School</span>
                                     <span class="entry-date">2022–2024</span>
-                                </div>
-                                <div class="award-row">
-                                    <span>SAT 1540/1600 — 800/800 Math</span>
-                                    <span class="entry-date">Mar 2023</span>
                                 </div>
                             </div>
                         </div>
@@ -230,7 +250,8 @@
                     </div>
                 </div>
 
-                </div><!-- /section-viewport -->
+
+</div><!-- /section-viewport -->
 
                 <div class="calendly-bar">
                     <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3ck4Tek88Q51kAPkMs9yx2PpUjTJeNh3g3ujYodU3lzNL7EY2sVlla1zgxkcUmgBxoFcjrTPIR" target="_blank" rel="noopener noreferrer">book a 30 min chat →</a>
