@@ -534,6 +534,15 @@ body, html {
     font-size: 0.95em;
 }
 
+.entry-title a {
+    display: inline;
+    font-size: inherit;
+    font-family: inherit;
+    font-weight: inherit;
+    color: #5a3a30;
+    margin-bottom: 0;
+}
+
 .entry-date {
     font-style: italic;
     color: #5a3a30;
@@ -564,6 +573,14 @@ body, html {
     margin-bottom: 3px;
     font-size: 0.9em;
     color: #2a1a10;
+}
+
+.resume-entry ul li a {
+    display: inline;
+    font-size: inherit;
+    font-family: inherit;
+    color: #5a3a30;
+    margin-bottom: 0;
 }
 
 .skills-list {
