@@ -1,3 +1,14 @@
+function switchTab(group, id, btn) {
+    document.querySelectorAll('#' + group + '-' + id).forEach(() => {});
+    const allPanels = document.querySelectorAll('[id^="' + group + '-"]');
+    allPanels.forEach(p => p.classList.add('tab-panel--hidden'));
+    document.getElementById(group + '-' + id).classList.remove('tab-panel--hidden');
+
+    const tabsBar = btn.closest('.tabs-bar');
+    tabsBar.querySelectorAll('.tab').forEach(t => t.classList.remove('tab--active'));
+    btn.classList.add('tab--active');
+}
+
 document.addEventListener("DOMContentLoaded", function () {
     const dateEl = document.getElementById("receipt-date");
     if (dateEl) {

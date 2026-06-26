@@ -20,7 +20,7 @@
         <!-- Mobile dropdown menu -->
         <div id="mobile-menu">
             <button onclick="showSection('about-me'); closeMenu()">About</button>
-            <button onclick="showSection('portfolio'); closeMenu()">Cabinet</button>
+            <button onclick="showSection('portfolio'); closeMenu()">Folders</button>
             <button onclick="showSection('resume'); closeMenu()">Resume</button>
             <div class="menu-socials">
                 <a href="https://www.linkedin.com/in/rocio-pv/" target="_blank" class="social-link">LinkedIn</a>
@@ -41,7 +41,7 @@
                     <span class="screen-title">Rocio PV</span>
                     <nav class="screen-nav">
                         <button onclick="showSection('about-me')">> About me</button>
-                        <button onclick="showSection('portfolio')">> Cabinet</button>
+                        <button onclick="showSection('portfolio')">> Folders</button>
                         <button onclick="showSection('resume')">> Resume</button>
                     </nav>
                     <div class="header-socials">
@@ -54,73 +54,143 @@
                 <!-- Sections -->
                 <div class="section-viewport">
                 <div id="portfolio-content">
-                    <p class="section-subtitle">a collection of things I've worked on and things I keep coming back to</p>
+                    <p class="section-subtitle">Things I've worked on and things I keep coming back to</p>
 
-                    <p class="shelf-label">things i've worked on</p>
-                    <div class="projects-grid">
-                    <button class="linked-div" onclick="window.open('https://aisi.dev', '_blank')">
-                        <img src="media/AISI.png" alt="logo" class="image-placeholder">
-                        <div class="text-content">
-                            <h3>AISI</h3>
-                            <p>Leading foundational research on the world's most transformative technology to ensure it is beneficial.</p>
+                    <p class="shelf-label">Worked on</p>
+                    <div class="browser-tabs browser-tabs--vertical">
+                        <div class="tabs-bar">
+                            <button class="tab tab--active" onclick="switchTab('projects', 'aisi', this)">AISI</button>
+                            <button class="tab" onclick="switchTab('projects', 'sae', this)">SAE Interp</button>
+                            <button class="tab" onclick="switchTab('projects', 'deepfake', this)">Deepfake Paper</button>
+                            <button class="tab" onclick="switchTab('projects', 'wordcount', this)">Wordcount</button>
                         </div>
-                    </button>
-                    <button class="linked-div">
-                        <img src="media/SAE.png" alt="logo" class="image-placeholder">
-                        <div class="text-content">
-                            <h3>SAE Interp Research</h3>
-                            <p>Working with <a href="https://scholar.google.com/scholar?q=Stepan+Shabalin" target="_blank" rel="noopener noreferrer">Stepan Shabalin</a> to apply SAEs for mech interp on VLAs.</p>
+                        <div class="tab-content">
+                            <div class="tab-panel" id="projects-aisi">
+                                <img src="media/AISI.png" alt="AISI logo" class="tab-img">
+                                <div class="tab-panel-text">
+                                    <strong>AISI</strong>
+                                    <p>Fieldbuilding, leading the policy efforts in AI to ensure a positive future.</p>
+                                    <a href="https://aisi.dev" target="_blank" rel="noopener noreferrer">learn more →</a>
+                                </div>
+                            </div>
+                            <div class="tab-panel tab-panel--hidden" id="projects-sae">
+                                <img src="media/SAE.png" alt="SAE logo" class="tab-img">
+                                <div class="tab-panel-text">
+                                    <strong>SAE Interp Research</strong>
+                                    <p>Working with <a href="https://scholar.google.com/scholar?q=Stepan+Shabalin" target="_blank" rel="noopener noreferrer">Stepan Shabalin</a> to apply SAEs for mech interp on VLAs.</p>
+                                </div>
+                            </div>
+                            <div class="tab-panel tab-panel--hidden" id="projects-deepfake">
+                                <img src="media/USLegislation.png" alt="legislation" class="tab-img">
+                                <div class="tab-panel-text">
+                                    <strong>US Deepfake Legislation Analysis</strong>
+                                    <p>A paper analyzing US legislation trends around deepfakes in the 2020-2025 time period, produced as my final artifact for INTA8000 under Prof. Margaret Kosal.</p>
+                                    <a href="https://gtvault-my.sharepoint.com/:w:/g/personal/rvaldes6_gatech_edu/IQA1tFpRaJviTo57Xgb9UWfsARTjkmaTL9HzeEDOWbh9IvU?e=Ffglsp" target="_blank" rel="noopener noreferrer">read here →</a>
+                                </div>
+                            </div>
+                            <div class="tab-panel tab-panel--hidden" id="projects-wordcount">
+                                <img src="media/personalizedwordcount.png" alt="Personalized Wordcount" class="tab-img">
+                                <div class="tab-panel-text">
+                                    <strong>Personalized Wordcount</strong>
+                                    <p>A published Google Docs extension for selective word counting. 2K+ downloads!</p>
+                                    <a href="/personalizedwordcount/homepage.html">website + download →</a>
+                                </div>
+                            </div>
                         </div>
-                    </button>
-                    <button class="linked-div" onclick="window.open('https://gtvault-my.sharepoint.com/:w:/g/personal/rvaldes6_gatech_edu/IQA1tFpRaJviTo57Xgb9UWfsARTjkmaTL9HzeEDOWbh9IvU?e=Ffglsp', '_blank')">
-                        <img src="media/USLegislation.png" alt="logo" class="image-placeholder">
-                        <div class="text-content">
-                            <h3>US deepfake legislation</h3>
-                            <p>A paper analyzing US legislation trends around deepfakes in the 2020-2025 time period. Produced as my final artifact for INTA8000 under Prof. Margaret Kosal.</p>
-                        </div>
-                    </button>
-                    <button class="linked-div" onclick="openUp(this, '/personalizedwordcount/homepage.html')">
-                        <img src="media/personalizedwordcount.png" alt="logo" class="image-placeholder">
-                        <div class="text-content">
-                            <h3>Personalized Wordcount - 2K+ downloads!</h3>
-                            <p>A published Google Docs extension to allow for selective word counting.</p>
-                        </div>
-                    </button>
                     </div>
 
-                    <p class="shelf-label">reads i recommend</p>
-                    <ul class="book-list">
-                        <li><span class="book-title">Maribel y la Extraña Familia</span> <span class="book-author">- Miguel Mihura</span></li>
-                        <li><span class="book-title">Luces de Bohemia</span> <span class="book-author">- Ramón del Valle-Inclán</span></li>
-                        <li><span class="book-title">Liking What You See: A Documentary</span> <span class="book-author">- Ted Chiang</span></li>
-                        <li><span class="book-title">The Case Against Perfection</span> <span class="book-author">- Michael J. Sandel</span></li>
-                        <li><span class="book-title">Brave New World</span> <span class="book-author">- Aldous Huxley</span></li>
-                        <li><span class="book-title">Agresividad y Derecho</span> <span class="book-author">- Pedro Rocamora García-Valls</span></li>
-                    </ul>
+                    <p class="shelf-label">Sources I recommend</p>
+                    <div class="browser-tabs browser-tabs--vertical">
+                        <div class="tabs-bar">
+                            <button class="tab tab--active" onclick="switchTab('sources', 'transformer', this)">Transformer</button>
+                            <button class="tab" onclick="switchTab('sources', 'zvi', this)">Zvi</button>
+                            <button class="tab" onclick="switchTab('sources', 'jasmine', this)">Jasmine Sun</button>
+                            <button class="tab" onclick="switchTab('sources', 'aipolicy', this)">AI Policy Daily</button>
+                        </div>
+                        <div class="tab-content">
+                            <div class="tab-panel" id="sources-transformer">
+                                <img src="https://www.google.com/s2/favicons?domain=transformernews.ai&sz=64" alt="Transformer" class="tab-img tab-img--favicon">
+                                <div class="tab-panel-text">
+                                    <strong>Transformer</strong>
+                                    <p>Mostly policy, love their weekly briefings!</p>
+                                    <a href="https://www.transformernews.ai/" target="_blank" rel="noopener noreferrer">visit source →</a>
+                                </div>
+                            </div>
+                            <div class="tab-panel tab-panel--hidden" id="sources-zvi">
+                                <img src="https://www.google.com/s2/favicons?domain=thezvi.substack.com&sz=64" alt="Zvi" class="tab-img tab-img--favicon">
+                                <div class="tab-panel-text">
+                                    <strong>Zvi</strong>
+                                    <p>More technical, great analysis of model cards.</p>
+                                    <a href="https://thezvi.substack.com/" target="_blank" rel="noopener noreferrer">visit source →</a>
+                                </div>
+                            </div>
+                            <div class="tab-panel tab-panel--hidden" id="sources-jasmine">
+                                <img src="https://www.google.com/s2/favicons?domain=jasmi.news&sz=64" alt="Jasmine Sun" class="tab-img tab-img--favicon">
+                                <div class="tab-panel-text">
+                                    <strong>Jasmine Sun</strong>
+                                    <p>More anthropological/social commentary shaped.</p>
+                                    <a href="https://jasmi.news/" target="_blank" rel="noopener noreferrer">visit source →</a>
+                                </div>
+                            </div>
+                            <div class="tab-panel tab-panel--hidden" id="sources-aipolicy">
+                                <img src="https://www.google.com/s2/favicons?domain=aipolicydaily.org&sz=64" alt="AI Policy Daily" class="tab-img tab-img--favicon">
+                                <div class="tab-panel-text">
+                                    <strong>AI Policy Daily</strong>
+                                    <p>Exactly what you'd assume from the title.</p>
+                                    <a href="https://aipolicydaily.org/" target="_blank" rel="noopener noreferrer">visit source →</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-                    <p class="shelf-label">sources i use to keep up</p>
-                    <div class="shelf-news">
-                        <a href="https://www.transformernews.ai/" target="_blank" rel="noopener noreferrer" class="news-pill">
-                            <span class="news-name">Transformer</span>
-                            <span class="news-desc">Mostly policy, love their weekly briefings!</span>
-                        </a>
-                        <a href="https://thezvi.substack.com/" target="_blank" rel="noopener noreferrer" class="news-pill">
-                            <span class="news-name">Zvi</span>
-                            <span class="news-desc">More technical, great analysis of model cards</span>
-                        </a>
-                        <a href="https://jasmi.news/" target="_blank" rel="noopener noreferrer" class="news-pill">
-                            <span class="news-name">Jasmine Sun</span>
-                            <span class="news-desc">More anthropological/social commentary shaped</span>
-                        </a>
-                        <a href="https://aipolicydaily.org/" target="_blank" rel="noopener noreferrer" class="news-pill">
-                            <span class="news-name">AI Policy Daily</span>
-                            <span class="news-desc">Exactly what you'd assume from the title</span>
-                        </a>
-                        <a href="https://attacksurfaceai.substack.com/" target="_blank" rel="noopener noreferrer" class="news-pill">
-                            <span class="news-name">The Attack Surface</span>
-                            <span class="news-desc">IAPS Frontier Security substack</span>
-                        </a>
-                        <span class="news-pill news-pill--ghost">+ frontier labs' blogs &amp; ai discussion on X</span>
+                    <p class="shelf-label">Great reads!</p>
+                    <div class="browser-tabs browser-tabs--vertical">
+                        <div class="tabs-bar">
+                            <button class="tab tab--active" onclick="switchTab('books', 'maribel', this)">Maribel y la Extraña Familia</button>
+                            <button class="tab" onclick="switchTab('books', 'luces', this)">Luces de Bohemia</button>
+                            <button class="tab" onclick="switchTab('books', 'liking', this)">Liking What You See</button>
+                            <button class="tab" onclick="switchTab('books', 'perfection', this)">The Case Against Perfection</button>
+                            <button class="tab" onclick="switchTab('books', 'bnw', this)">Brave New World</button>
+                            <button class="tab" onclick="switchTab('books', 'agresividad', this)">Agresividad y Derecho</button>
+                        </div>
+                        <div class="tab-content">
+                            <div class="tab-panel" id="books-maribel">
+                                <div class="tab-panel-text">
+                                    <strong>Maribel y la Extraña Familia - Miguel Mihura</strong>
+                                    <p>An absurdist comedy all about self-forgiveness with outstandingly well-written female characters. Probably my favorite work of literature ever, the dialogue is both histerical and poignant.</p>
+                                </div>
+                            </div>
+                            <div class="tab-panel tab-panel--hidden" id="books-luces">
+                                <div class="tab-panel-text">
+                                    <strong>Luces de Bohemia - Ramón del Valle-Inclán's </strong>
+                                    <p>The prime example of "esperpento" a Spanish play genre that can be understood as being a tragedy with strong social critique. Beautiful but soul-crushing, I was in a funk for a few days. </p>
+                                </div>
+                            </div>
+                            <div class="tab-panel tab-panel--hidden" id="books-liking">
+                                <div class="tab-panel-text">
+                                    <strong>Liking What You See: A Documentary - Ted Chiang</strong>
+                                    <p>Ted Chiang is a favorite between sci-fi fans and this short story along with "Hell is the Absence of God" are my favorite.</p>
+                                </div>
+                            </div>
+                            <div class="tab-panel tab-panel--hidden" id="books-perfection">
+                                <div class="tab-panel-text">
+                                    <strong>The Case Against Perfection - Michael J. Sandel</strong>
+                                    <p>Fantastic long-form essay-argument, made me grateful for the randomness inherent in human talent and encouraged my first public Substack</p>
+                                </div>
+                            </div>
+                            <div class="tab-panel tab-panel--hidden" id="books-bnw">
+                                <div class="tab-panel-text">
+                                    <strong>Brave New World - Aldous Huxley</strong>
+                                    <p>It's up there with Fahrenheit 451, but I found the concept of SOMA more troubling. Weirdly, I did not enjoy 1984 as much.</p>
+                                </div>
+                            </div>
+                            <div class="tab-panel tab-panel--hidden" id="books-agresividad">
+                                <div class="tab-panel-text">
+                                    <strong>Agresividad y Derecho - Pedro Rocamora García-Valls</strong>
+                                    <p>Very interesting reflections on the role of the law. Read it because Rocamora García-Valls was a professor for both of my parents so the book was in my house. I really enjoyed it, plus it was my first ever non-fiction.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
