@@ -699,18 +699,29 @@ body, html {
 
 .news-pill {
     font-family: "Times New Roman", Times, Georgia, serif;
-    font-size: 0.82em;
-    font-style: italic;
     color: #5a3a30;
     background: #fdf6f0;
     border: 1px solid rgba(90,58,48,0.25);
     border-radius: 6px;
-    padding: 7px 10px;
+    padding: 9px 11px;
     box-shadow: 1px 1px 4px rgba(0,0,0,0.08);
     text-decoration: none;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    gap: 3px;
     transition: background 0.15s, box-shadow 0.15s;
+}
+
+.news-name {
+    font-size: 0.84em;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.news-desc {
+    font-size: 0.78em;
+    font-style: italic;
+    opacity: 0.8;
 }
 
 .news-pill:hover {
