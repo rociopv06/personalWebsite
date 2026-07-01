@@ -1,3 +1,13 @@
+document.addEventListener('DOMContentLoaded', function () {
+    const btn = document.getElementById('archive-toggle-btn');
+    const list = document.getElementById('archive-list');
+    if (btn && list) {
+        btn.addEventListener('click', function () {
+            list.style.display = list.style.display === 'block' ? 'none' : 'block';
+        });
+    }
+});
+
 function switchTab(group, id, btn) {
     document.querySelectorAll('#' + group + '-' + id).forEach(() => {});
     const allPanels = document.querySelectorAll('[id^="' + group + '-"]');
