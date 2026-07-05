@@ -40,7 +40,7 @@
 }
 
 body, html {
-    font-family: "Times New Roman", Times, Georgia, serif;
+    font-family: "Spectral", Times, Georgia, serif;
     margin: 0;
     padding: 0;
     height: 100%;
@@ -80,7 +80,7 @@ body, html {
     bottom: 14px;
     left: 18px;
     color: rgba(101, 67, 33, 0.75);
-    font-family: "Times New Roman", Times, Georgia, serif;
+    font-family: "Spectral", Times, Georgia, serif;
     font-size: 0.78em;
     font-style: italic;
     margin: 0;
@@ -145,7 +145,7 @@ body, html {
 }
 
 .screen-title {
-    font-family: "Times New Roman", Times, Georgia, serif;
+    font-family: "Spectral", Times, Georgia, serif;
     font-size: 1.6em;
     font-weight: 700;
     color: #1a1a1a;
@@ -161,7 +161,7 @@ body, html {
 }
 
 .screen-nav button {
-    font-family: "Times New Roman", Times, Georgia, serif;
+    font-family: "Spectral", Times, Georgia, serif;
     background: none;
     border: none;
     color: #5a3a30;
@@ -179,7 +179,7 @@ body, html {
 .social-link {
     text-decoration: none;
     color: #5a3a30;
-    font-family: "Times New Roman", Times, Georgia, serif;
+    font-family: "Spectral", Times, Georgia, serif;
     font-size: 1em;
     font-style: italic;
     transition: opacity 0.15s;
@@ -193,7 +193,7 @@ body, html {
 #interests-content,
 #resume-content,
 #about-me-content {
-    font-family: "Times New Roman", Times, Georgia, serif;
+    font-family: "Spectral", Times, Georgia, serif;
     display: none;
     height: auto;
     max-width: 98%;
@@ -207,7 +207,7 @@ body, html {
 }
 
 .collage-subtitle {
-    font-family: "Times New Roman", Times, Georgia, serif;
+    font-family: "Spectral", Times, Georgia, serif;
     font-size: 0.95em;
     font-style: italic;
     color: #5a3a30;
@@ -280,8 +280,8 @@ body, html {
 
 #about-me-content p {
     font-size: 1.2em;
-    line-height: 1.6;
-    margin-bottom: 6px;
+    line-height: 1.5;
+    margin-bottom: 4px;
 }
 
 #about-me-content a {
@@ -289,8 +289,14 @@ body, html {
     text-decoration: underline;
 }
 
+#about-me-content br {
+    line-height: 0.6em;
+    content: "";
+    display: block;
+}
+
 .section-subtitle {
-    font-family: "Times New Roman", Times, Georgia, serif;
+    font-family: "Spectral", Times, Georgia, serif;
     font-size: 1em;
     font-style: italic;
     color: #5a3a30;
@@ -301,14 +307,14 @@ body, html {
     font-size: 1em;
     font-weight: 700;
     color: #1a1a1a;
-    margin: 14px 0 4px 0;
+    margin: 8px 0 4px 0;
 }
 
 .what-up {
-    margin: 0 0 10px 0;
+    margin: 0 0 6px 0;
     padding-left: 18px;
     font-size: 1.1em;
-    line-height: 1.75;
+    line-height: 1.5;
 }
 
 .what-up li { margin-bottom: 2px; }
@@ -352,7 +358,7 @@ body, html {
 }
 
 .calendly-bar a {
-    font-family: "Times New Roman", Times, Georgia, serif;
+    font-family: "Spectral", Times, Georgia, serif;
     font-size: 0.85em;
     font-style: italic;
     color: #5a3a30;
@@ -423,7 +429,7 @@ body, html {
 }
 
 .text-content {
-    font-family: "Times New Roman", Times, Georgia, serif;
+    font-family: "Spectral", Times, Georgia, serif;
     flex: 1;
     min-width: 0;
 }
@@ -511,7 +517,7 @@ body, html {
 }
 
 .resume-download a {
-    font-family: "Times New Roman", Times, Georgia, serif;
+    font-family: "Spectral", Times, Georgia, serif;
     font-size: 1em;
     color: #5a3a30;
     text-decoration: none;
@@ -520,7 +526,7 @@ body, html {
 .resume-download a:hover { text-decoration: underline; }
 
 .resume-body {
-    font-family: "Times New Roman", Times, Georgia, serif;
+    font-family: "Spectral", Times, Georgia, serif;
     color: #1a1a1a;
     font-size: 0.95em;
     line-height: 1.5;
@@ -637,7 +643,7 @@ body, html {
 
 /* ── Bookshelf ── */
 .shelf-label {
-    font-family: "Times New Roman", Times, Georgia, serif;
+    font-family: "Spectral", Times, Georgia, serif;
     font-size: 1em;
     font-weight: 700;
     color: #1a1a1a;
@@ -685,7 +691,7 @@ body, html {
 }
 
 .book-list li {
-    font-family: "Times New Roman", Times, Georgia, serif;
+    font-family: "Spectral", Times, Georgia, serif;
     font-size: 1.1em;
     padding: 2px 0;
     line-height: 1.75;
@@ -761,7 +767,7 @@ body, html {
 }
 
 .tab {
-    font-family: "Times New Roman", Times, Georgia, serif;
+    font-family: "Spectral", Times, Georgia, serif;
     font-size: 0.82em;
     font-weight: 600;
     color: #1a1a1a;
@@ -812,7 +818,7 @@ body, html {
 }
 
 .tab-panel-text {
-    font-family: "Times New Roman", Times, Georgia, serif;
+    font-family: "Spectral", Times, Georgia, serif;
     display: flex;
     flex-direction: column;
     gap: 4px;
@@ -848,7 +854,7 @@ body, html {
 }
 
 .news-pill {
-    font-family: "Times New Roman", Times, Georgia, serif;
+    font-family: "Spectral", Times, Georgia, serif;
     color: #1e1008;
     background: #f0e6da;
     border: 1px solid rgba(90,58,48,0.2);
@@ -949,7 +955,7 @@ body, html {
     }
 
     .mobile-title {
-        font-family: "Times New Roman", Times, Georgia, serif;
+        font-family: "Spectral", Times, Georgia, serif;
         font-size: 1.35em;
         font-weight: 700;
         color: antiquewhite;
@@ -961,7 +967,7 @@ body, html {
         cursor: pointer;
         color: antiquewhite;
         padding: 2px 6px;
-        font-family: "Times New Roman", Times, Georgia, serif;
+        font-family: "Spectral", Times, Georgia, serif;
         user-select: none;
     }
 
@@ -987,7 +993,7 @@ body, html {
         border-bottom: 1px solid rgba(0,0,0,0.08);
         padding: 10px 0;
         font-size: 1.1em;
-        font-family: "Times New Roman", Times, Georgia, serif;
+        font-family: "Spectral", Times, Georgia, serif;
         text-align: left;
         cursor: pointer;
         width: 100%;
