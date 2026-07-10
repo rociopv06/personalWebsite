@@ -178,10 +178,10 @@ body, html {
 
 .social-link {
     text-decoration: none;
-    color: #5a3a30;
+    color: #1a1a1a;
     font-family: "Spectral", Times, Georgia, serif;
     font-size: 1em;
-    font-style: italic;
+    font-style: normal;
     transition: opacity 0.15s;
     white-space: nowrap;
 }
@@ -347,35 +347,6 @@ body, html {
     display: block;
     line-height: 1.4;
     margin-top: 2px;
-}
-
-/* ── Calendly bar ── */
-.calendly-bar {
-    position: absolute;
-    bottom: 10px;
-    right: 14px;
-    z-index: 20;
-}
-
-.calendly-bar a {
-    font-family: "Spectral", Times, Georgia, serif;
-    font-size: 0.85em;
-    font-style: italic;
-    color: #5a3a30;
-    text-decoration: none;
-    letter-spacing: 0.02em;
-    background: rgba(245, 230, 210, 0.95);
-    border: 1px solid rgba(90,58,48,0.2);
-    border-radius: 20px;
-    padding: 5px 13px;
-    white-space: nowrap;
-    box-shadow: 1px 2px 6px rgba(0,0,0,0.12);
-    display: inline-block;
-}
-
-.calendly-bar a:hover {
-    background: rgba(235, 215, 195, 1);
-    text-decoration: none;
 }
 
 /* ── Resume ── */
@@ -1011,7 +982,7 @@ body, html {
     }
 
     .menu-socials .social-link {
-        color: #5a3a30;
+        color: #1a1a1a;
         font-size: 0.95em;
     }
 
@@ -1061,14 +1032,6 @@ body, html {
     /* Ensure about-me scrolls with extra text */
     #about-me-content p { margin-bottom: 10px; }
     .bg-caption { display: none; }
-
-    .calendly-bar {
-        position: fixed;
-        bottom: 14px;
-        right: 14px;
-        left: auto;
-        z-index: 1001;
-    }
 
     .mac-content { padding-bottom: 52px; }
 

@@ -1,10 +1,19 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const btn = document.getElementById('archive-toggle-btn');
+    const latestEl = document.getElementById('latest-read');
     const list = document.getElementById('archive-list');
-    if (btn && list) {
-        btn.addEventListener('click', function () {
-            list.style.display = list.style.display === 'block' ? 'none' : 'block';
-        });
+    if (latestEl && list) {
+        fetch('reading.json')
+            .then(res => res.json())
+            .then(entries => {
+                if (!entries.length) return;
+                const [latest, ...rest] = entries;
+                latestEl.innerHTML = `Latest highlighted read: ${latest.date} - ${latest.html} &nbsp;  <button class="archive-toggle" id="archive-toggle-btn">Archive ⏷</button>`;
+                list.innerHTML = rest.map(e => `<li>${e.date} - ${e.html}</li>`).join('');
+                document.getElementById('archive-toggle-btn').addEventListener('click', function () {
+                    list.style.display = list.style.display === 'block' ? 'none' : 'block';
+                });
+            })
+            .catch(err => console.error('Failed to load reading.json', err));
     }
 });
 
