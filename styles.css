@@ -88,6 +88,24 @@ body, html {
     z-index: 1;
 }
 
+.main-footer {
+    position: absolute;
+    bottom: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #000000;
+    font-family: "Spectral", Times, Georgia, serif;
+    font-size: 0.78em;
+    text-align: center;
+    margin: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.main-footer p {
+    margin: 0;
+}
+
 .mac-image { display: none; }
 
 /* ── Laptop screen content ── */
