@@ -1,10 +1,68 @@
+const READING_SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTnl6040yESVY2M0wQbhzj7spTyaRZtbGXCo27lWmHuNdJ2E97lfTs-bMfcsn0Xkd9ACD5_uhgYtq2w/pub?output=csv';
+
+function parseCsv(text) {
+    const rows = [];
+    let row = [];
+    let field = '';
+    let inQuotes = false;
+    for (let i = 0; i < text.length; i++) {
+        const c = text[i];
+        if (inQuotes) {
+            if (c === '"') {
+                if (text[i + 1] === '"') { field += '"'; i++; }
+                else inQuotes = false;
+            } else field += c;
+        } else if (c === '"') inQuotes = true;
+        else if (c === ',') { row.push(field); field = ''; }
+        else if (c === '\n' || c === '\r') {
+            if (c === '\r' && text[i + 1] === '\n') i++;
+            row.push(field); field = '';
+            if (row.some(v => v !== '')) rows.push(row);
+            row = [];
+        } else field += c;
+    }
+    if (field !== '' || row.length) { row.push(field); rows.push(row); }
+    return rows;
+}
+
+function titleFromUrl(url) {
+    try {
+        const { hostname, pathname } = new URL(url);
+        const slug = pathname.split('/').filter(Boolean).pop() || hostname;
+        return slug
+            .replace(/\.(html?|php|aspx?)$/i, '')
+            .replace(/[-_]+/g, ' ')
+            .replace(/\b\w/g, c => c.toUpperCase());
+    } catch {
+        return url;
+    }
+}
+
+function escapeHtml(str) {
+    return str.replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+}
+
 document.addEventListener('DOMContentLoaded', function () {
     const latestEl = document.getElementById('latest-read');
     const list = document.getElementById('archive-list');
     if (latestEl && list) {
-        fetch('reading.json')
-            .then(res => res.json())
-            .then(entries => {
+        fetch(READING_SHEET_CSV_URL)
+            .then(res => res.text())
+            .then(csv => {
+                const [header, ...rows] = parseCsv(csv);
+                const cols = header.map(h => h.trim().toLowerCase());
+                const dateIdx = cols.indexOf('date');
+                const urlIdx = cols.indexOf('url');
+                const titleIdx = cols.indexOf('title');
+                const entries = rows.map(r => {
+                    const url = r[urlIdx].trim();
+                    const title = (r[titleIdx] || '').trim() || titleFromUrl(url);
+                    const html = `<a href="${url}" target="_blank" rel="noopener noreferrer">${escapeHtml(title)}</a>`;
+                    const dateStr = r[dateIdx].trim();
+                    const [mm, dd, yyyy] = dateStr.split('/').map(Number);
+                    return { date: dateStr, html, sortKey: new Date(yyyy, mm - 1, dd).getTime() };
+                });
+                entries.sort((a, b) => b.sortKey - a.sortKey);
                 if (!entries.length) return;
                 const [latest, ...rest] = entries;
                 latestEl.innerHTML = `Latest highlighted read: ${latest.date} - ${latest.html} &nbsp;  <button class="archive-toggle" id="archive-toggle-btn">Archive ⏷</button>`;
@@ -13,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     list.style.display = list.style.display === 'block' ? 'none' : 'block';
                 });
             })
-            .catch(err => console.error('Failed to load reading.json', err));
+            .catch(err => console.error('Failed to load reading sheet', err));
     }
 });
 
