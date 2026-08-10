@@ -88,24 +88,6 @@ body, html {
     z-index: 1;
 }
 
-.main-footer {
-    position: absolute;
-    bottom: 14px;
-    left: 50%;
-    transform: translateX(-50%);
-    color: #000000;
-    font-family: "Spectral", Times, Georgia, serif;
-    font-size: 0.78em;
-    text-align: center;
-    margin: 0;
-    pointer-events: none;
-    z-index: 1;
-}
-
-.main-footer p {
-    margin: 0;
-}
-
 .mac-image { display: none; }
 
 /* ── Laptop screen content ── */
@@ -217,7 +199,17 @@ body, html {
     max-width: 98%;
 }
 
-#about-me-content { display: block; }
+#about-me-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+}
+
+.about-me-body {
+    overflow-y: auto;
+    min-height: 0;
+}
 
 #interests-content.active {
     display: block;
@@ -340,6 +332,16 @@ body, html {
 
 .wrapped-up {
     color: #1a1a1a;
+}
+
+.about-quote {
+    font-family: "Spectral", Times, Georgia, serif;
+    font-style: italic;
+    font-size: 0.85em;
+    color: #5a3a30;
+    text-align: center;
+    margin: auto 0 0;
+    padding-top: 16px;
 }
 
 .profile-image {
