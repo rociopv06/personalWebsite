@@ -24,6 +24,8 @@
     margin: 6px 0 0 0;
     padding: 0;
     font-size: 0.95em;
+    max-height: 220px;
+    overflow-y: auto;
 }
 
 .archive-list li {
@@ -303,14 +305,6 @@ body, html {
     line-height: 0.6em;
     content: "";
     display: block;
-}
-
-.section-subtitle {
-    font-family: "Spectral", Times, Georgia, serif;
-    font-size: 1em;
-    font-style: italic;
-    color: #5a3a30;
-    margin: 0 0 10px 2px;
 }
 
 .what-up-label {

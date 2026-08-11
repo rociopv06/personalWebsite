@@ -68,7 +68,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 latestEl.innerHTML = `Latest highlighted read: ${latest.date} - ${latest.html} &nbsp;  <button class="archive-toggle" id="archive-toggle-btn">Archive ⏷</button>`;
                 list.innerHTML = rest.map(e => `<li>${e.date} - ${e.html}</li>`).join('');
                 document.getElementById('archive-toggle-btn').addEventListener('click', function () {
-                    list.style.display = list.style.display === 'block' ? 'none' : 'block';
+                    const opening = list.style.display !== 'block';
+                    list.style.display = opening ? 'block' : 'none';
+                    if (opening) {
+                        requestAnimationFrame(() => { list.scrollTop = list.scrollHeight; });
+                    }
                 });
             })
             .catch(err => console.error('Failed to load reading sheet', err));
