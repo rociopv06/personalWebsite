@@ -334,6 +334,10 @@ body, html {
     font-size: 0.85em;
     color: #5a3a30;
     text-align: center;
+    margin: 0 0 12px;
+}
+
+#about-me-content .about-quote {
     margin: auto 0 0;
     padding-top: 16px;
 }
@@ -349,6 +353,12 @@ body, html {
     margin-bottom: 10px;
     box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
     background-color: #b8d4e9;
+}
+
+.degree-inline {
+    font-size: 0.5em;
+    font-weight: 300;
+    color: #5a3a30;
 }
 
 .pronunciation {
