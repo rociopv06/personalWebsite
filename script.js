@@ -124,7 +124,8 @@ function showSection(section) {
     sections.forEach(id => {
         const el = document.getElementById(`${id}-content`);
         if (!el) return;
-        el.style.display = id === section ? 'block' : 'none';
+        if (id !== section) { el.style.display = 'none'; return; }
+        el.style.display = id === 'about-me' ? 'flex' : 'block';
     });
 }
 
