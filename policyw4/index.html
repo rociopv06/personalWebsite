@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Week 4 Download</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" href="../media/favicon.jpg" type="image/jpeg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fafaf7;
+            color: #222;
+            font-family: "Spectral", Times, Georgia, serif;
+            padding: 0 16px;
+        }
+        main { max-width: 360px; width: 100%; text-align: center; }
+        h1 { font-weight: 600; font-size: 1.6em; margin-bottom: 0.3em; }
+        p { font-style: italic; color: #555; margin-top: 0; }
+        input, button {
+            font-family: inherit;
+            font-size: 1em;
+            width: 100%;
+            box-sizing: border-box;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #bbb;
+            border-radius: 4px;
+        }
+        button { background: #222; color: #fff; border-color: #222; cursor: pointer; }
+        button:disabled { opacity: 0.6; cursor: wait; }
+        #msg { min-height: 1.5em; margin-top: 12px; font-style: normal; }
+        .error { color: #b00020; }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Week 4</h1>
+        <p>Enter the password to download.</p>
+        <form id="form">
+            <input type="password" id="pw" placeholder="Password" autocomplete="off" required autofocus>
+            <button type="submit" id="btn">Download</button>
+        </form>
+        <div id="msg"></div>
+    </main>
+
+    <script>
+        // The zip is stored encrypted (openssl enc -aes-256-cbc -pbkdf2 -iter 200000 -md sha256).
+        // It is only decrypted in the browser with the password the visitor enters.
+        const ENC_FILE = "week4.zip.enc";
+        const OUT_NAME = "Week 4.zip";
+        const ITERATIONS = 200000;
+
+        const form = document.getElementById("form");
+        const btn = document.getElementById("btn");
+        const msg = document.getElementById("msg");
+
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            btn.disabled = true;
+            msg.className = "";
+            msg.textContent = "Checking…";
+            try {
+                const res = await fetch(ENC_FILE);
+                if (!res.ok) throw new Error("fetch");
+                const data = new Uint8Array(await res.arrayBuffer());
+                const salt = data.slice(8, 16); // after "Salted__"
+                const ciphertext = data.slice(16);
+
+                const baseKey = await crypto.subtle.importKey(
+                    "raw", new TextEncoder().encode(document.getElementById("pw").value),
+                    "PBKDF2", false, ["deriveBits"]);
+                const bits = new Uint8Array(await crypto.subtle.deriveBits(
+                    { name: "PBKDF2", salt, iterations: ITERATIONS, hash: "SHA-256" },
+                    baseKey, 48 * 8));
+                const key = await crypto.subtle.importKey(
+                    "raw", bits.slice(0, 32), "AES-CBC", false, ["decrypt"]);
+
+                let plain;
+                try {
+                    plain = await crypto.subtle.decrypt(
+                        { name: "AES-CBC", iv: bits.slice(32, 48) }, key, ciphertext);
+                } catch {
+                    throw new Error("password");
+                }
+                // Sanity check: zip files start with "PK"
+                const head = new Uint8Array(plain, 0, 2);
+                if (head[0] !== 0x50 || head[1] !== 0x4b) throw new Error("password");
+
+                const url = URL.createObjectURL(new Blob([plain], { type: "application/zip" }));
+                const a = document.createElement("a");
+                a.href = url;
+                a.download = OUT_NAME;
+                document.body.appendChild(a);
+                a.click();
+                a.remove();
+                setTimeout(() => URL.revokeObjectURL(url), 10000);
+                msg.textContent = "Download started.";
+            } catch (err) {
+                msg.className = "error";
+                msg.textContent = err.message === "password"
+                    ? "Incorrect password."
+                    : "Something went wrong. Please try again.";
+            } finally {
+                btn.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>
