@@ -33,7 +33,7 @@
 }
 
 .archive-wrapper a {
-    color: #5a3a30;
+    color: #45454a;
     text-decoration: none;
 }
 
@@ -48,7 +48,7 @@ body, html {
     height: 100%;
     overflow: hidden;
     background-color: #1a1710;
-    color: #1a1a1a;
+    color: #1f1b19;
 }
 
 .mobile-header { display: none; }
@@ -77,19 +77,6 @@ body, html {
     min-width: 560px;
 }
 
-.bg-caption {
-    position: absolute;
-    bottom: 14px;
-    left: 18px;
-    color: rgba(101, 67, 33, 0.75);
-    font-family: "Spectral", Times, Georgia, serif;
-    font-size: 0.78em;
-    font-style: italic;
-    margin: 0;
-    pointer-events: none;
-    z-index: 1;
-}
-
 .mac-image { display: none; }
 
 /* ── Laptop screen content ── */
@@ -101,10 +88,10 @@ body, html {
     height: 100%;
     transform: perspective(1200px) rotateX(2deg) rotateY(1deg);
     transform-origin: top left;
-    background-color: rgba(245, 230, 210, 0.93);
+    background-color: rgba(250, 248, 242, 0.94);
     border-radius: 4px;
-    color: #1a1a1a;
-    padding: 12px 18px 40px;
+    color: #1f1b19;
+    padding: 12px 18px 12px;
     overflow: hidden;
     text-align: left;
     direction: rtl;
@@ -118,13 +105,17 @@ body, html {
     flex: 1;
     overflow-y: auto;
     min-height: 0;
+    padding-bottom: 20px;
     scrollbar-width: thin;
-    scrollbar-color: #c49080 transparent;
+    scrollbar-color: #9aa3b2 transparent;
+    /* fade the bottom edge; the mask also forces a clean clip under the screen tilt */
+    -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 20px), transparent);
+    mask-image: linear-gradient(to bottom, #000 calc(100% - 20px), transparent);
 }
 
 .section-viewport::-webkit-scrollbar { width: 6px; }
 .section-viewport::-webkit-scrollbar-track { background: transparent; }
-.section-viewport::-webkit-scrollbar-thumb { background: #c49080; border-radius: 10px; }
+.section-viewport::-webkit-scrollbar-thumb { background: #9aa3b2; border-radius: 10px; }
 
 .mac-content > * { direction: ltr; }
 
@@ -150,10 +141,10 @@ body, html {
     font-family: "Spectral", Times, Georgia, serif;
     font-size: 1.6em;
     font-weight: 700;
-    color: #1a1a1a;
+    color: #1f1b19;
     white-space: nowrap;
     /* block outlined letter effect */
-    -webkit-text-stroke: 1px #1a1a1a;
+    -webkit-text-stroke: 1px #1f1b19;
 }
 
 .screen-nav {
@@ -166,7 +157,7 @@ body, html {
     font-family: "Spectral", Times, Georgia, serif;
     background: none;
     border: none;
-    color: #5a3a30;
+    color: #45454a;
     font-size: 1.1em;
     padding: 2px 10px;
     cursor: pointer;
@@ -174,13 +165,13 @@ body, html {
 }
 
 .screen-nav button:hover {
-    color: #1a1a1a;
+    color: #1f1b19;
     text-decoration: underline;
 }
 
 .social-link {
     text-decoration: none;
-    color: #1a1a1a;
+    color: #1f1b19;
     font-family: "Spectral", Times, Georgia, serif;
     font-size: 1em;
     font-style: normal;
@@ -222,7 +213,7 @@ body, html {
     font-family: "Spectral", Times, Georgia, serif;
     font-size: 0.95em;
     font-style: italic;
-    color: #5a3a30;
+    color: #45454a;
     margin: 0 0 6px 2px;
 }
 
@@ -237,9 +228,9 @@ body, html {
     margin: 0 0 8px 0;
     padding: 10px 12px;
     overflow: hidden;
-    background: #fdf6f0;
+    background: #ffffff;
     border-radius: 6px;
-    border: 1px solid rgba(90,58,48,0.12);
+    border: 1px solid rgba(31,27,25,0.12);
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     transition: box-shadow 0.2s, transform 0.2s;
     box-sizing: border-box;
@@ -259,7 +250,7 @@ body, html {
     object-fit: contain;
     padding: 6px;
     box-sizing: border-box;
-    background-color: #f5ede4;
+    background-color: #f1f3f6;
 }
 
 #portfolio-content .text-content {
@@ -277,7 +268,7 @@ body, html {
     font-size: 0.76em;
     -webkit-line-clamp: 2;
     line-clamp: 2;
-    color: #5a3a30;
+    color: #45454a;
     line-height: 1.4;
     margin: 0;
 }
@@ -286,7 +277,7 @@ body, html {
 #about-me-content h2 {
     font-size: 2em;
     font-weight: 700;
-    -webkit-text-stroke: 1px #1a1a1a;
+    -webkit-text-stroke: 1px #1f1b19;
     margin-bottom: 10px;
 }
 
@@ -297,7 +288,7 @@ body, html {
 }
 
 #about-me-content a {
-    color: #5a3a30;
+    color: #45454a;
     text-decoration: underline;
 }
 
@@ -310,7 +301,7 @@ body, html {
 .what-up-label {
     font-size: 1em;
     font-weight: 700;
-    color: #1a1a1a;
+    color: #1f1b19;
     margin: 8px 0 4px 0;
 }
 
@@ -321,18 +312,41 @@ body, html {
     line-height: 1.5;
 }
 
+.contact-row {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 14px;
+}
+
+.contact-links {
+    text-align: right;
+}
+
+.s-dots {
+    width: 340px;
+    height: 90px;
+    margin-top: -18px;
+    flex-shrink: 1;
+    min-width: 0;
+}
+
+.s-dots { overflow: visible; }
+.age-dot { fill: #3f4859; }
+.age-dot-outline { fill: none; stroke: #3f4859; stroke-width: 0.9; }
+
 .what-up li { margin-bottom: 2px; }
-.what-up a { color: #5a3a30; }
+.what-up a { color: #45454a; }
 
 .wrapped-up {
-    color: #1a1a1a;
+    color: #1f1b19;
 }
 
 .about-quote {
     font-family: "Spectral", Times, Georgia, serif;
     font-style: italic;
     font-size: 0.85em;
-    color: #5a3a30;
+    color: #45454a;
     text-align: center;
     margin: 0 0 12px;
 }
@@ -345,44 +359,90 @@ body, html {
 .profile-image {
     width: 110px;
     height: 110px;
-    object-fit: cover;
-    object-position: top center;
-    border-radius: 4px;
     float: left;
     margin-right: 16px;
     margin-bottom: 10px;
+}
+
+/* photo flips over to show the drawing on click */
+.pfp-flip {
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+    perspective: 600px;
+}
+
+.pfp-inner {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(.4,.2,.2,1);
+}
+
+.pfp-flip { --turns: 0; }
+.pfp-inner { transform: rotateY(calc(var(--turns) * 180deg)); }
+/* hover: a frame grows out around the photo, the photo itself stays put */
+.pfp-flip {
+    margin-top: 7px;
+    margin-left: 7px;
+    border-radius: 6px;
+    outline: 1.5px solid transparent;
+    outline-offset: 0;
+    transition: outline-offset 0.25s ease, outline-color 0.25s ease;
+}
+.pfp-flip:hover,
+.pfp-flip:focus-visible {
+    outline-color: #6b7689;
+    outline-offset: 5px;
+}
+
+.pfp-face {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    border-radius: 4px;
     box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
     background-color: #b8d4e9;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }
+
+.pfp-back { transform: rotateY(180deg); }
 
 .degree-inline {
     font-size: 0.5em;
-    font-weight: 300;
-    color: #5a3a30;
+    font-weight: 400;
+    -webkit-text-stroke: 0;
+    color: #45454a;
+    display: block;
+    line-height: 1.4;
+    margin-top: 4px;
 }
 
 .pronunciation {
     font-size: 0.46em;
     font-weight: 400;
-    color: #5a3a30;
+    color: #45454a;
     -webkit-text-stroke: 0;
     letter-spacing: 0.01em;
-    white-space: normal;
-    display: block;
-    line-height: 1.4;
-    margin-top: 2px;
 }
 
 /* ── Resume ── */
 #resume-content h2 {
     font-size: 2em;
     font-weight: 700;
-    -webkit-text-stroke: 1px #1a1a1a;
+    -webkit-text-stroke: 1px #1f1b19;
     margin-bottom: 10px;
 }
 
 #resume-content a {
-    color: #1a1a1a;
+    color: #1f1b19;
 }
 
 .pdf {
@@ -395,7 +455,7 @@ body, html {
     width: 90%;
     margin: 6px auto;
     padding: 10px 14px;
-    background-color: #fdf6f0;
+    background-color: #ffffff;
     border: none;
     border-radius: 4px;
     box-shadow: 2px 3px 8px rgba(0,0,0,0.15);
@@ -404,7 +464,7 @@ body, html {
     align-items: center;
     cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s;
-    color: #1a1a1a;
+    color: #1f1b19;
     min-height: 70px;
     overflow: hidden;
 }
@@ -416,7 +476,7 @@ body, html {
 .image-placeholder {
     width: 70px;
     height: 70px;
-    background-color: #e8d0c4;
+    background-color: #e6e9ef;
     border-radius: 6px;
     margin-right: 14px;
     object-fit: cover;
@@ -431,7 +491,7 @@ body, html {
 
 .linked-div h3 {
     margin: 4px 0;
-    color: #1a1a1a;
+    color: #1f1b19;
     font-size: 1.2em;
     font-weight: 700;
     white-space: nowrap;
@@ -440,11 +500,11 @@ body, html {
 }
 
 .linked-div p {
-    color: #1a1a1a;
+    color: #1f1b19;
     font-size: 1em;
 }
 
-.linked-div p a { color: #8a4a38; font-size: inherit; font-family: inherit; }
+.linked-div p a { color: #45454a; font-size: inherit; font-family: inherit; }
 
 /* ── Tabletop collage ── */
 .collage {
@@ -508,21 +568,31 @@ body, html {
 
 /* ── Resume HTML ── */
 .resume-download {
-    margin-bottom: 12px;
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    margin: 0;
 }
 
 .resume-download a {
     font-family: "Spectral", Times, Georgia, serif;
-    font-size: 1em;
-    color: #5a3a30;
+    font-size: 0.8em;
+    font-weight: 600;
+    color: #1f1b19;
     text-decoration: none;
+    display: inline-block;
+    padding: 2px 10px;
+    border: 1px solid #6b7689;
+    border-radius: 5px;
+    background: #e6e9ef;
 }
 
 .resume-download a:hover { text-decoration: underline; }
 
 .resume-body {
+    position: relative;
     font-family: "Spectral", Times, Georgia, serif;
-    color: #1a1a1a;
+    color: #1f1b19;
     font-size: 0.95em;
     line-height: 1.5;
 }
@@ -540,9 +610,9 @@ body, html {
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: #1a1a1a;
+    color: #1f1b19;
     margin: 0 0 8px 0;
-    -webkit-text-stroke: 0.4px #1a1a1a;
+    -webkit-text-stroke: 0.4px #1f1b19;
 }
 
 .resume-entry {
@@ -569,24 +639,24 @@ body, html {
     font-size: inherit;
     font-family: inherit;
     font-weight: inherit;
-    color: #1a1a1a;
+    color: #1f1b19;
     margin-bottom: 0;
 }
 
 .entry-date {
-    color: #1a1a1a;
+    color: #1f1b19;
     font-size: 0.85em;
     white-space: nowrap;
 }
 
 .entry-subtitle {
-    color: #1a1a1a;
+    color: #1f1b19;
     font-size: 0.9em;
     margin-top: 2px;
 }
 
 .entry-note {
-    color: #1a1a1a;
+    color: #1f1b19;
     font-size: 0.85em;
     margin-top: 3px;
 }
@@ -599,14 +669,14 @@ body, html {
 .resume-entry ul li {
     margin-bottom: 3px;
     font-size: 0.9em;
-    color: #1a1a1a;
+    color: #1f1b19;
 }
 
 .resume-entry ul li a {
     display: inline;
     font-size: inherit;
     font-family: inherit;
-    color: #1a1a1a;
+    color: #1f1b19;
     margin-bottom: 0;
 }
 
@@ -641,7 +711,7 @@ body, html {
     font-family: "Spectral", Times, Georgia, serif;
     font-size: 1em;
     font-weight: 700;
-    color: #1a1a1a;
+    color: #1f1b19;
     margin: 14px 0 4px 0;
 }
 
@@ -669,7 +739,7 @@ body, html {
 
 .projects-grid .linked-div p {
     font-size: 0.92em;
-    color: #1a1a1a;
+    color: #1f1b19;
     margin: 0;
     line-height: 1.4;
 }
@@ -697,13 +767,13 @@ body, html {
 .book-title {
     font-weight: 700;
     font-size: 1.1em;
-    color: #1a1a1a;
+    color: #1f1b19;
 }
 
 .source-link {
     font-weight: 700;
     font-size: 1.1em;
-    color: #1a1a1a;
+    color: #1f1b19;
     text-decoration: none;
 }
 
@@ -712,7 +782,7 @@ body, html {
 }
 
 .book-author {
-    color: #1a1a1a;
+    color: #1f1b19;
 }
 
 .browser-tabs {
@@ -729,13 +799,13 @@ body, html {
     flex-direction: column;
     gap: 3px;
     border-bottom: none;
-    border-right: 1px solid #1a1a1a;
+    border-right: 1px solid #6b7689;
     padding-right: 0;
     flex-shrink: 0;
 }
 
 .browser-tabs--vertical .tab {
-    border: 1px solid #1a1a1a;
+    border: 1px solid #6b7689;
     border-right: none;
     border-radius: 5px 0 0 5px;
     position: static;
@@ -749,7 +819,7 @@ body, html {
 }
 
 .browser-tabs--vertical .tab-content {
-    border: 1px solid #1a1a1a;
+    border: 1px solid #6b7689;
     border-left: none;
     flex: 1;
 }
@@ -758,20 +828,20 @@ body, html {
     display: flex;
     gap: 3px;
     align-items: flex-end;
-    border-bottom: 1px solid #1a1a1a;
+    border-bottom: 1px solid #6b7689;
 }
 
 .tab {
     font-family: "Spectral", Times, Georgia, serif;
     font-size: 0.82em;
     font-weight: 600;
-    color: #1a1a1a;
+    color: #1f1b19;
     text-decoration: none;
     padding: 5px 12px;
-    border: 1px solid #1a1a1a;
+    border: 1px solid #6b7689;
     border-bottom: none;
     border-radius: 5px 5px 0 0;
-    background: #ede4d8;
+    background: #e6e9ef;
     cursor: pointer;
 }
 
@@ -780,7 +850,7 @@ body, html {
 }
 
 .tab-content {
-    border: 1px solid #1a1a1a;
+    border: 1px solid #6b7689;
     border-top: none;
     padding: 14px 16px;
     background: #ffffff;
@@ -802,7 +872,7 @@ body, html {
     object-fit: cover;
     border-radius: 6px;
     flex-shrink: 0;
-    background: #e8d8cc;
+    background: #e6e9ef;
 }
 
 .tab-img--favicon {
@@ -821,19 +891,19 @@ body, html {
 
 .tab-panel-text strong {
     font-size: 1.05em;
-    color: #1a1a1a;
+    color: #1f1b19;
 }
 
 .tab-panel-text p {
     font-size: 0.95em;
-    color: #1a1a1a;
+    color: #1f1b19;
     margin: 0;
     line-height: 1.5;
 }
 
 .tab-panel-text a {
     font-size: 0.88em;
-    color: #5a3a30;
+    color: #45454a;
     text-decoration: none;
 }
 
@@ -850,9 +920,9 @@ body, html {
 
 .news-pill {
     font-family: "Spectral", Times, Georgia, serif;
-    color: #1e1008;
-    background: #f0e6da;
-    border: 1px solid rgba(90,58,48,0.2);
+    color: #1f1b19;
+    background: #f1f3f6;
+    border: 1px solid rgba(31,27,25,0.2);
     border-radius: 6px;
     padding: 9px 11px;
     box-shadow: none;
@@ -872,11 +942,11 @@ body, html {
 .news-desc {
     font-size: 0.8em;
     font-style: italic;
-    color: #3a2018;
+    color: #1f1b19;
 }
 
 .news-pill:hover {
-    background: rgba(235, 215, 195, 1);
+    background: #e2e6ec;
     box-shadow: 1px 2px 7px rgba(0,0,0,0.14);
     text-decoration: none;
 }
@@ -885,7 +955,7 @@ body, html {
     background: transparent;
     border-color: transparent;
     box-shadow: none;
-    color: #1a1a1a;
+    color: #1f1b19;
     font-style: normal;
     cursor: default;
     font-size: 0.78em;
@@ -919,6 +989,10 @@ body, html {
 
 /* ── Mobile ── */
 @media screen and (max-width: 768px) {
+    .contact-row { justify-content: flex-start; }
+    .contact-links { text-align: left; }
+    .s-dots { display: none; }
+
     body, html {
         overflow-x: hidden;
         overflow-y: auto;
@@ -973,7 +1047,7 @@ body, html {
         left: 0;
         right: 0;
         z-index: 999;
-        background: #f2c4b0;
+        background: #e6e9ef;
         padding: 12px 18px 16px;
         flex-direction: column;
         gap: 0;
@@ -983,7 +1057,7 @@ body, html {
 
     #mobile-menu button {
         background: none;
-        color: #1a1a1a;
+        color: #1f1b19;
         border: none;
         border-bottom: 1px solid rgba(0,0,0,0.08);
         padding: 10px 0;
@@ -995,7 +1069,7 @@ body, html {
     }
 
     #mobile-menu button:last-of-type { border-bottom: none; }
-    #mobile-menu button:hover { color: #5a3a30; }
+    #mobile-menu button:hover { color: #45454a; }
 
     .menu-socials {
         display: flex;
@@ -1006,7 +1080,7 @@ body, html {
     }
 
     .menu-socials .social-link {
-        color: #1a1a1a;
+        color: #1f1b19;
         font-size: 0.95em;
     }
 
@@ -1055,9 +1129,7 @@ body, html {
 
     /* Ensure about-me scrolls with extra text */
     #about-me-content p { margin-bottom: 10px; }
-    .bg-caption { display: none; }
-
-    .mac-content { padding-bottom: 52px; }
+        .mac-content { padding-bottom: 52px; }
 
     #interests-content,
     #resume-content,

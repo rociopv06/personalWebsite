@@ -156,3 +156,90 @@ function openUp(el, webpage) {
         window.location.href = webpage;
     }, 800);
 }
+
+// One dot per year of age on an exponential curve; the last dot fills in as the next birthday approaches.
+function drawAgeDots(svg) {
+    const now = new Date();
+    let last = new Date(now.getFullYear(), 3, 12);
+    if (now < last) last = new Date(now.getFullYear() - 1, 3, 12);
+    const next = new Date(last.getFullYear() + 1, 3, 12);
+    const age = last.getFullYear() - 2006;
+    const frac = (now - last) / (next - last);
+
+    // endpoints in viewBox units; k sets how sharply the curve bends upward
+    const x0 = 8, y0 = 84, x1 = 332, y1 = 6, k = 3;
+    const point = t => ({
+        x: x0 + (x1 - x0) * t,
+        y: y0 + (y1 - y0) * (Math.exp(k * t) - 1) / (Math.exp(k) - 1),
+    });
+
+    const ns = 'http://www.w3.org/2000/svg';
+    const r = 2.5;
+    const dot = (p, cls) => {
+        const c = document.createElementNS(ns, 'circle');
+        c.setAttribute('cx', p.x);
+        c.setAttribute('cy', p.y);
+        c.setAttribute('r', r);
+        c.setAttribute('class', cls);
+        svg.appendChild(c);
+        return c;
+    };
+
+    for (let i = 0; i < age; i++) dot(point(i / age), 'age-dot');
+
+    const end = point(1);
+    const clip = document.createElementNS(ns, 'clipPath');
+    clip.id = 'age-dot-clip';
+    const rect = document.createElementNS(ns, 'rect');
+    rect.setAttribute('x', end.x - r);
+    rect.setAttribute('y', end.y - r);
+    rect.setAttribute('width', 2 * r * frac);
+    rect.setAttribute('height', 2 * r);
+    clip.appendChild(rect);
+    svg.appendChild(clip);
+    dot(end, 'age-dot age-dot--partial').setAttribute('clip-path', 'url(#age-dot-clip)');
+    dot(end, 'age-dot-outline');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.s-dots').forEach(drawAgeDots);
+});
+
+// Clicking the profile picture flips between the headshot and each alternative in turn
+// (headshot, alt 1, headshot, alt 2, ...); the hidden face is swapped before each turn.
+const PROFILE_DEFAULT = { src: 'media/IAPS - Jason Dixson Photography - 260608 - 105745 - 2018.jpg', alt: 'Rocio PV', pos: 'top center', bg: '#b8d4e9' };
+const PROFILE_ALTS = [
+    { src: 'media/pfp_waterfall.jpg', alt: 'Rocio by a waterfall', pos: 'center', bg: '#b8d4e9' },
+    { src: 'media/drawing.png', alt: 'Pen drawing of Rocio', pos: 'center', bg: '#ffffff' },
+    { src: 'media/me_square.jpg', alt: 'Rocio by the water', pos: 'center', bg: '#b8d4e9' },
+    { src: 'media/pfp_lisbon.jpg', alt: 'Rocio at a castle wall in Lisbon', pos: 'center', bg: '#b8d4e9' },
+    { src: 'media/pfp_talk.jpg', alt: 'Rocio giving a talk', pos: 'center', bg: '#b8d4e9' },
+];
+
+function profileFace(turns) {
+    if (turns % 2 === 0) return PROFILE_DEFAULT;
+    return PROFILE_ALTS[((turns - 1) / 2) % PROFILE_ALTS.length];
+}
+
+function setProfileFace(img, face) {
+    img.src = face.src;
+    img.alt = face.alt;
+    img.style.objectPosition = face.pos;
+    img.style.backgroundColor = face.bg;
+}
+
+function flipProfile(btn) {
+    const turns = Number(btn.dataset.turns || 0) + 1;
+    const faces = btn.querySelectorAll('.pfp-face');
+    setProfileFace(faces[turns % 2], profileFace(turns));
+    btn.dataset.turns = turns;
+    btn.style.setProperty('--turns', turns);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.pfp-flip').forEach(btn => {
+        const faces = btn.querySelectorAll('.pfp-face');
+        setProfileFace(faces[0], profileFace(0));
+        setProfileFace(faces[1], profileFace(1));
+    });
+});

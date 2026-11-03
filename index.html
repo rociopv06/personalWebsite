@@ -59,7 +59,6 @@
                 <!-- Sections -->
                 <div class="section-viewport">
                 <div id="portfolio-content">
-                    <p class="about-quote">"The state of things is evidently far from simple" - William James</p>
                     <div class="archive-wrapper">
                         <p id="latest-read">Latest highlighted read: &nbsp;  <button class="archive-toggle" id="archive-toggle-btn">Archive ⏷</button></p>
                         <ul class="archive-list" id="archive-list"></ul>
@@ -216,17 +215,24 @@
 
                 <div id="about-me-content">
                     <div class="about-me-body">
-                    <img src="media/IAPS - Jason Dixson Photography - 260608 - 105745 - 2018.jpg" alt="Rocio PV" class="profile-image">
-                    <h2>Hey, I'm Rocio! <span class="degree-inline">B.S. Comp Sci @ Georgia Tech, minor in Law, Science and Technology.</span> <span class="pronunciation">think of the c as a th and you're good to go.</span></h2>
-                    <br>
-                    <p>I am interested in understanding what good AI policy and governance actually looks like.<br> 
-                        I co-direct the AI Safety Initiative at Georgia Tech, leading field-building efforts to get the very best working on preventing harms from transformative AI.<br> 
+                    <button class="profile-image pfp-flip" onclick="flipProfile(this)" aria-label="Flip my photo to see more pictures of me">
+                        <span class="pfp-inner">
+                            <img src="media/IAPS - Jason Dixson Photography - 260608 - 105745 - 2018.jpg" alt="Rocio PV" class="pfp-face">
+                            <img src="media/me_square.jpg" alt="Rocio by the water" class="pfp-face pfp-back">
+                        </span>
+                    </button>
+                    <h2>Hey, I'm Rocio! <span class="pronunciation">(roh-thee-oh)</span> <span class="degree-inline">B.S. Computer Science @ Georgia Tech, minor in Law, Science and Technology.</span></h2>
+                    <p>I am interested in understanding what good AI policy and governance actually looks like.<br>
+                        I co-direct the AI Safety Initiative at Georgia Tech, leading field-building efforts to get the very best working on preventing harms from transformative AI.
                         </p>
-                    <br>
-                    
-                    <p> Read my  <a href="https://substack.com/@rociopv" target="_blank" rel="noopener noreferrer"> Substack</a> 
+
+                    <div class="contact-row">
+                    <!-- dots are drawn by drawAgeDots() in script.js, one per year of age -->
+                    <svg class="s-dots" viewBox="0 0 340 90" aria-hidden="true"></svg>
+                    <p class="contact-links"> Read my  <a href="https://substack.com/@rociopv" target="_blank" rel="noopener noreferrer"> Substack</a> 
                         <br>Give me anonymous <a href="https://www.admonymous.co/rocio-pv" target="_blank" rel="noopener noreferrer"> feedback</a>
                         <br>Email me: rocio.perales (at) gatech.edu</p>
+                    </div>
 
                     <p class="what-up-label">What I'm up to</p>
                     <ul class="what-up">
@@ -237,14 +243,14 @@
 
                     <br>
                     <p>If you're at Tech and want to get involved with AISI, come to our next <a href="https://aisi.dev/#block-yui_3_17_2_1_1778782455828_15157">event</a> and feel free to <a href="mailto:board@aisi.dev?subject=Reaching%20out%20to%20%7BINSERT%20YOUR%20QUESTION%20HERE%7D%20%5BFrom%20Rocio's%20website%5D">reach out</a></p>
-                    <br>
                     </div>
+                    <p class="about-quote">"The state of things is evidently far from simple" - William James</p>
                 </div>
 
                 <div id="resume-content">
                     <div class="resume-body">
 
-                        <p><a href="media/RocioPeralesValdes_Resume.pdf" target="_blank" rel="noopener noreferrer">PDF here</a></p>
+                        <p class="resume-download"><a href="media/RocioPeralesValdes_Resume.pdf" target="_blank" rel="noopener noreferrer">Download PDF ↓</a></p>
 
                         <div class="resume-section">
                             <h3>Education</h3>
@@ -364,7 +370,7 @@
                         <div class="resume-section">
                             <h3>Interests</h3>
                             <div class="skills-list">
-                                <div>Blogging on AI futures (Substack: rociopv), music composition and production, running, soccer</div>
+                                <div>Blogging on a future with increasingly powerful AI (Substack: rociopv), music composition and production, running, soccer</div>
                             </div>
                         </div>
 
