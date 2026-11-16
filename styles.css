@@ -33,7 +33,7 @@
 }
 
 .archive-wrapper a {
-    color: #45454a;
+    color: #333337;
     text-decoration: none;
 }
 
@@ -48,7 +48,7 @@ body, html {
     height: 100%;
     overflow: hidden;
     background-color: #1a1710;
-    color: #1f1b19;
+    color: #14110f;
 }
 
 .mobile-header { display: none; }
@@ -90,7 +90,7 @@ body, html {
     transform-origin: top left;
     background-color: rgba(250, 248, 242, 0.94);
     border-radius: 4px;
-    color: #1f1b19;
+    color: #14110f;
     padding: 12px 18px 12px;
     overflow: hidden;
     text-align: left;
@@ -141,10 +141,10 @@ body, html {
     font-family: "Spectral", Times, Georgia, serif;
     font-size: 1.6em;
     font-weight: 700;
-    color: #1f1b19;
+    color: #14110f;
     white-space: nowrap;
     /* block outlined letter effect */
-    -webkit-text-stroke: 1px #1f1b19;
+    -webkit-text-stroke: 1px #14110f;
 }
 
 .screen-nav {
@@ -157,7 +157,7 @@ body, html {
     font-family: "Spectral", Times, Georgia, serif;
     background: none;
     border: none;
-    color: #45454a;
+    color: #333337;
     font-size: 1.1em;
     padding: 2px 10px;
     cursor: pointer;
@@ -165,13 +165,13 @@ body, html {
 }
 
 .screen-nav button:hover {
-    color: #1f1b19;
+    color: #14110f;
     text-decoration: underline;
 }
 
 .social-link {
     text-decoration: none;
-    color: #1f1b19;
+    color: #14110f;
     font-family: "Spectral", Times, Georgia, serif;
     font-size: 1em;
     font-style: normal;
@@ -213,7 +213,7 @@ body, html {
     font-family: "Spectral", Times, Georgia, serif;
     font-size: 0.95em;
     font-style: italic;
-    color: #45454a;
+    color: #333337;
     margin: 0 0 6px 2px;
 }
 
@@ -268,7 +268,7 @@ body, html {
     font-size: 0.76em;
     -webkit-line-clamp: 2;
     line-clamp: 2;
-    color: #45454a;
+    color: #333337;
     line-height: 1.4;
     margin: 0;
 }
@@ -277,7 +277,7 @@ body, html {
 #about-me-content h2 {
     font-size: 2em;
     font-weight: 700;
-    -webkit-text-stroke: 1px #1f1b19;
+    -webkit-text-stroke: 1px #14110f;
     margin-bottom: 10px;
 }
 
@@ -287,8 +287,11 @@ body, html {
     margin-bottom: 4px;
 }
 
+/* start the intro paragraph below the photo instead of wrapping its first line beside it */
+#about-me-content h2 + p { clear: left; }
+
 #about-me-content a {
-    color: #45454a;
+    color: #333337;
     text-decoration: underline;
 }
 
@@ -301,7 +304,7 @@ body, html {
 .what-up-label {
     font-size: 1em;
     font-weight: 700;
-    color: #1f1b19;
+    color: #14110f;
     margin: 8px 0 4px 0;
 }
 
@@ -336,17 +339,17 @@ body, html {
 .age-dot-outline { fill: none; stroke: #3f4859; stroke-width: 0.9; }
 
 .what-up li { margin-bottom: 2px; }
-.what-up a { color: #45454a; }
+.what-up a { color: #333337; }
 
 .wrapped-up {
-    color: #1f1b19;
+    color: #14110f;
 }
 
 .about-quote {
     font-family: "Spectral", Times, Georgia, serif;
     font-style: italic;
     font-size: 0.85em;
-    color: #45454a;
+    color: #333337;
     text-align: center;
     margin: 0 0 12px;
 }
@@ -415,11 +418,19 @@ body, html {
 
 .pfp-back { transform: rotateY(180deg); }
 
+/* background-removed photo: no square card, shadow follows the outline instead */
+.pfp-face.pfp-cutout {
+    box-shadow: none;
+    border-radius: 0;
+    filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2));
+    object-fit: contain;
+}
+
 .degree-inline {
     font-size: 0.5em;
     font-weight: 400;
     -webkit-text-stroke: 0;
-    color: #45454a;
+    color: #333337;
     display: block;
     line-height: 1.4;
     margin-top: 4px;
@@ -428,7 +439,7 @@ body, html {
 .pronunciation {
     font-size: 0.46em;
     font-weight: 400;
-    color: #45454a;
+    color: #333337;
     -webkit-text-stroke: 0;
     letter-spacing: 0.01em;
 }
@@ -437,12 +448,12 @@ body, html {
 #resume-content h2 {
     font-size: 2em;
     font-weight: 700;
-    -webkit-text-stroke: 1px #1f1b19;
+    -webkit-text-stroke: 1px #14110f;
     margin-bottom: 10px;
 }
 
 #resume-content a {
-    color: #1f1b19;
+    color: #14110f;
 }
 
 .pdf {
@@ -464,7 +475,7 @@ body, html {
     align-items: center;
     cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s;
-    color: #1f1b19;
+    color: #14110f;
     min-height: 70px;
     overflow: hidden;
 }
@@ -491,7 +502,7 @@ body, html {
 
 .linked-div h3 {
     margin: 4px 0;
-    color: #1f1b19;
+    color: #14110f;
     font-size: 1.2em;
     font-weight: 700;
     white-space: nowrap;
@@ -500,11 +511,11 @@ body, html {
 }
 
 .linked-div p {
-    color: #1f1b19;
+    color: #14110f;
     font-size: 1em;
 }
 
-.linked-div p a { color: #45454a; font-size: inherit; font-family: inherit; }
+.linked-div p a { color: #333337; font-size: inherit; font-family: inherit; }
 
 /* ── Tabletop collage ── */
 .collage {
@@ -578,7 +589,7 @@ body, html {
     font-family: "Spectral", Times, Georgia, serif;
     font-size: 0.8em;
     font-weight: 600;
-    color: #1f1b19;
+    color: #14110f;
     text-decoration: none;
     display: inline-block;
     padding: 2px 10px;
@@ -592,7 +603,7 @@ body, html {
 .resume-body {
     position: relative;
     font-family: "Spectral", Times, Georgia, serif;
-    color: #1f1b19;
+    color: #14110f;
     font-size: 0.95em;
     line-height: 1.5;
 }
@@ -610,9 +621,9 @@ body, html {
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: #1f1b19;
+    color: #14110f;
     margin: 0 0 8px 0;
-    -webkit-text-stroke: 0.4px #1f1b19;
+    -webkit-text-stroke: 0.4px #14110f;
 }
 
 .resume-entry {
@@ -639,24 +650,24 @@ body, html {
     font-size: inherit;
     font-family: inherit;
     font-weight: inherit;
-    color: #1f1b19;
+    color: #14110f;
     margin-bottom: 0;
 }
 
 .entry-date {
-    color: #1f1b19;
+    color: #14110f;
     font-size: 0.85em;
     white-space: nowrap;
 }
 
 .entry-subtitle {
-    color: #1f1b19;
+    color: #14110f;
     font-size: 0.9em;
     margin-top: 2px;
 }
 
 .entry-note {
-    color: #1f1b19;
+    color: #14110f;
     font-size: 0.85em;
     margin-top: 3px;
 }
@@ -669,14 +680,14 @@ body, html {
 .resume-entry ul li {
     margin-bottom: 3px;
     font-size: 0.9em;
-    color: #1f1b19;
+    color: #14110f;
 }
 
 .resume-entry ul li a {
     display: inline;
     font-size: inherit;
     font-family: inherit;
-    color: #1f1b19;
+    color: #14110f;
     margin-bottom: 0;
 }
 
@@ -711,7 +722,7 @@ body, html {
     font-family: "Spectral", Times, Georgia, serif;
     font-size: 1em;
     font-weight: 700;
-    color: #1f1b19;
+    color: #14110f;
     margin: 14px 0 4px 0;
 }
 
@@ -739,7 +750,7 @@ body, html {
 
 .projects-grid .linked-div p {
     font-size: 0.92em;
-    color: #1f1b19;
+    color: #14110f;
     margin: 0;
     line-height: 1.4;
 }
@@ -767,13 +778,13 @@ body, html {
 .book-title {
     font-weight: 700;
     font-size: 1.1em;
-    color: #1f1b19;
+    color: #14110f;
 }
 
 .source-link {
     font-weight: 700;
     font-size: 1.1em;
-    color: #1f1b19;
+    color: #14110f;
     text-decoration: none;
 }
 
@@ -782,7 +793,7 @@ body, html {
 }
 
 .book-author {
-    color: #1f1b19;
+    color: #14110f;
 }
 
 .browser-tabs {
@@ -835,7 +846,7 @@ body, html {
     font-family: "Spectral", Times, Georgia, serif;
     font-size: 0.82em;
     font-weight: 600;
-    color: #1f1b19;
+    color: #14110f;
     text-decoration: none;
     padding: 5px 12px;
     border: 1px solid #6b7689;
@@ -891,19 +902,19 @@ body, html {
 
 .tab-panel-text strong {
     font-size: 1.05em;
-    color: #1f1b19;
+    color: #14110f;
 }
 
 .tab-panel-text p {
     font-size: 0.95em;
-    color: #1f1b19;
+    color: #14110f;
     margin: 0;
     line-height: 1.5;
 }
 
 .tab-panel-text a {
     font-size: 0.88em;
-    color: #45454a;
+    color: #333337;
     text-decoration: none;
 }
 
@@ -920,7 +931,7 @@ body, html {
 
 .news-pill {
     font-family: "Spectral", Times, Georgia, serif;
-    color: #1f1b19;
+    color: #14110f;
     background: #f1f3f6;
     border: 1px solid rgba(31,27,25,0.2);
     border-radius: 6px;
@@ -942,7 +953,7 @@ body, html {
 .news-desc {
     font-size: 0.8em;
     font-style: italic;
-    color: #1f1b19;
+    color: #14110f;
 }
 
 .news-pill:hover {
@@ -955,7 +966,7 @@ body, html {
     background: transparent;
     border-color: transparent;
     box-shadow: none;
-    color: #1f1b19;
+    color: #14110f;
     font-style: normal;
     cursor: default;
     font-size: 0.78em;
@@ -1057,7 +1068,7 @@ body, html {
 
     #mobile-menu button {
         background: none;
-        color: #1f1b19;
+        color: #14110f;
         border: none;
         border-bottom: 1px solid rgba(0,0,0,0.08);
         padding: 10px 0;
@@ -1069,7 +1080,7 @@ body, html {
     }
 
     #mobile-menu button:last-of-type { border-bottom: none; }
-    #mobile-menu button:hover { color: #45454a; }
+    #mobile-menu button:hover { color: #333337; }
 
     .menu-socials {
         display: flex;
@@ -1080,7 +1091,7 @@ body, html {
     }
 
     .menu-socials .social-link {
-        color: #1f1b19;
+        color: #14110f;
         font-size: 0.95em;
     }
 

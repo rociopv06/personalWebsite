@@ -207,13 +207,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Clicking the profile picture flips between the headshot and each alternative in turn
 // (headshot, alt 1, headshot, alt 2, ...); the hidden face is swapped before each turn.
-const PROFILE_DEFAULT = { src: 'media/IAPS - Jason Dixson Photography - 260608 - 105745 - 2018.jpg', alt: 'Rocio PV', pos: 'top center', bg: '#b8d4e9' };
+const PROFILE_DEFAULT = { src: 'media/pfp_corl.png', alt: 'Rocio presenting at CoRL', pos: 'top center', bg: 'transparent', cutout: true };
 const PROFILE_ALTS = [
-    { src: 'media/pfp_waterfall.jpg', alt: 'Rocio by a waterfall', pos: 'center', bg: '#b8d4e9' },
     { src: 'media/drawing.png', alt: 'Pen drawing of Rocio', pos: 'center', bg: '#ffffff' },
-    { src: 'media/me_square.jpg', alt: 'Rocio by the water', pos: 'center', bg: '#b8d4e9' },
-    { src: 'media/pfp_lisbon.jpg', alt: 'Rocio at a castle wall in Lisbon', pos: 'center', bg: '#b8d4e9' },
-    { src: 'media/pfp_talk.jpg', alt: 'Rocio giving a talk', pos: 'center', bg: '#b8d4e9' },
 ];
 
 function profileFace(turns) {
@@ -226,6 +222,7 @@ function setProfileFace(img, face) {
     img.alt = face.alt;
     img.style.objectPosition = face.pos;
     img.style.backgroundColor = face.bg;
+    img.classList.toggle('pfp-cutout', !!face.cutout);
 }
 
 function flipProfile(btn) {
