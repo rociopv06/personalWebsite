@@ -402,6 +402,12 @@ body, html {
     outline-offset: 5px;
 }
 
+/* touch screens: hover "sticks" after a tap, so skip the frame there */
+@media (hover: none) {
+    .pfp-flip:hover,
+    .pfp-flip:focus-visible { outline-color: transparent; }
+}
+
 .pfp-face {
     position: absolute;
     inset: 0;
@@ -1177,8 +1183,31 @@ body, html {
         margin-left: 0;
     }
 
-    #about-me-content h2 { font-size: 1.6em; }
+    #about-me-content h2 {
+        font-size: 1.6em;
+        line-height: 1.15;
+        margin: 4px 0 14px;
+    }
     #about-me-content p { font-size: 1.05em; }
+
+    /* intro header: name, pronunciation and degree stack neatly beside the photo */
+    #about-me-content .pronunciation {
+        display: block;
+        white-space: nowrap;
+        font-size: 0.55em;
+        margin-top: 2px;
+    }
+    #about-me-content .degree-inline {
+        font-size: 0.55em;
+        line-height: 1.35;
+        margin-top: 6px;
+    }
+    .profile-image {
+        width: 96px;
+        height: 96px;
+        margin-top: 0;
+        margin-bottom: 8px;
+    }
 
     .resume-body { font-size: 0.88em; }
     .entry-title { font-size: 0.9em; }
