@@ -1434,3 +1434,35 @@ html.dark .age-dot-outline { stroke: #c9d0dc; }
 #about-me-content .contact-row { justify-content: flex-start; }
 #about-me-content .contact-links { order: -1; text-align: left; }
 #about-me-content .s-dots { margin-left: auto; margin-right: 60px; }
+
+/* ── Phone layout fixes ── */
+@media screen and (max-width: 768px) {
+    /* top bar matches the page instead of dark brown/beige */
+    .mobile-header { background-color: #ffffff; border-bottom: 1px solid rgba(0,0,0,0.12); }
+    .mobile-title, #hamburger { color: #000000; }
+    .background { background-color: #ffffff; }
+    html.dark .mobile-header { background-color: #16181d; border-bottom-color: rgba(255,255,255,0.12); }
+    html.dark .mobile-title, html.dark #hamburger { color: #ececec; }
+    html.dark .background { background-color: #16181d; }
+
+    /* intro: photo + caption on one row, heading underneath with the full width */
+    #about-me-content .about-intro {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+        margin-bottom: 18px;
+    }
+    #about-me-content .pfp-figure {
+        flex-direction: row;
+        align-items: center;
+        gap: 14px;
+    }
+    #about-me-content .about-intro .profile-image { margin: 6px; }
+    #about-me-content .pfp-caption { text-align: left; max-width: none; }
+    #about-me-content .about-intro h2 { font-size: 1.9em; line-height: 1.15; }
+}
+@media screen and (max-width: 768px) {
+    /* heading now spans the screen, so the pronunciation drops below the name instead of off the edge */
+    .name-say-tip { left: 0; top: 100%; transform: translateY(6px); }
+    .name-say-tip::before, .name-say-tip::after { display: none; }
+}
