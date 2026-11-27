@@ -9,50 +9,48 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-<script src="script.js"></script>
+    <link rel="stylesheet" href="styles.css?v=48">
+<script src="script.js?v=17"></script>
+<script>try { if (localStorage.getItem('theme') === 'dark') document.documentElement.classList.add('dark'); } catch (e) {}</script>
 </head>
 <body>
     <div class="background">
 
         <!-- Mobile header (shown only on mobile) -->
         <div class="mobile-header" id="mobile-header">
-            <span class="mobile-title">Rocio PV</span>
+            <span class="mobile-title" role="button" tabindex="0" onclick="showSection('about-me'); closeMenu()" onkeydown="if(event.key==='Enter'){showSection('about-me'); closeMenu()}">Rocio PV</span>
             <div id="hamburger">&#9776;</div>
         </div>
 
         <!-- Mobile dropdown menu -->
         <div id="mobile-menu">
-            <button onclick="showSection('about-me'); closeMenu()">About</button>
-            <button onclick="showSection('portfolio'); closeMenu()">Folders</button>
+            <button onclick="showSection('doing'); closeMenu()">Doing &amp; Did</button>
+            <button onclick="showSection('portfolio'); closeMenu()">Bookshelf</button>
             <button onclick="showSection('resume'); closeMenu()">Resume</button>
             <div class="menu-socials">
-                <a href="https://www.linkedin.com/in/rocio-pv/" target="_blank" class="social-link">LinkedIn</a>
                 <a href="https://substack.com/@rociopv" target="_blank" class="social-link">Substack</a>
                 <a href="https://x.com/_rociopv" target="_blank" class="social-link">X</a>
-                <a href="https://cal.com/rociopv/30min" target="_blank" rel="noopener noreferrer" class="social-link">Book a call</a>
+                <a href="https://www.linkedin.com/in/rocio-pv/" target="_blank" class="social-link">LinkedIn</a>
             </div>
         </div>
 
 
         <!-- Laptop -->
         <div class="image-container">
-            <img src="media/mac.png" class="mac-image" alt="mac" loading="lazy">
             <div class="mac-content">
 
                 <!-- Header nav inside the laptop screen -->
                 <div class="screen-header">
-                    <span class="screen-title">Rocio PV</span>
+                    <span class="screen-title" role="button" tabindex="0" onclick="showSection('about-me')" onkeydown="if(event.key==='Enter'){showSection('about-me')}">Rocio PV</span>
                     <nav class="screen-nav">
-                        <button onclick="showSection('about-me')">> About me</button>
-                        <button onclick="showSection('portfolio')">> Folders</button>
-                        <button onclick="showSection('resume')">> Resume</button>
+                        <button onclick="showSection('doing')">Doing &amp; Did</button>
+                        <button onclick="showSection('portfolio')">Bookshelf</button>
+                        <button onclick="showSection('resume')">Resume</button>
                     </nav>
                     <div class="header-socials">
-                        <a href="https://www.linkedin.com/in/rocio-pv/" target="_blank" class="social-link">LinkedIn</a>
                         <a href="https://substack.com/@rociopv" target="_blank" class="social-link">Substack</a>
                                 <a href="https://x.com/_rociopv" target="_blank" class="social-link">X</a>
-                        <a href="https://cal.com/rociopv/30min" target="_blank" rel="noopener noreferrer" class="social-link">Book a call</a>
+                        <a href="https://www.linkedin.com/in/rocio-pv/" target="_blank" class="social-link">LinkedIn</a>
                     </div>
                 </div>
 
@@ -64,187 +62,87 @@
                         <ul class="archive-list" id="archive-list"></ul>
                     </div>
 
-                    <p class="shelf-label">Things I worked on</p>
-                    <div class="browser-tabs browser-tabs--vertical">
-                        <div class="tabs-bar">
-                            <button class="tab tab--active" onclick="switchTab('projects', 'aisi', this)">AISI</button>
-                            <button class="tab" onclick="switchTab('projects', 'iaps', this)">IAPS</button>
-                            <button class="tab" onclick="switchTab('projects', 'sae', this)">SAE Interp</button>
-                            <button class="tab" onclick="switchTab('projects', 'deepfake', this)">Deepfake Paper</button>
-                            <button class="tab" onclick="switchTab('projects', 'wordcount', this)">Wordcount</button>
-                        </div>
-                        <div class="tab-content">
-                            <div class="tab-panel" id="projects-aisi">
-                                <img src="media/AISI.png" alt="AISI logo" class="tab-img">
-                                <div class="tab-panel-text">
-                                    <strong>AISI</strong>
-                                    <p>Fieldbuilding, leading the policy efforts in AI to ensure a positive future.</p>
-                                    <a href="https://aisi.dev" target="_blank" rel="noopener noreferrer">learn more →</a>
-                                </div>
-                            </div>
-                            <div class="tab-panel tab-panel--hidden" id="projects-iaps">
-                                <img src="media/IAPS_icon.png" alt="IAPS logo" class="tab-img">
-                                <div class="tab-panel-text">
-                                    <strong>IAPS</strong>
-                                    <p>Worked with the Institute for AI Policy and Strategy on robotics threat modeling.<br> Currently published: a <a href="https://docs.google.com/document/d/1a2QTSpmUjrBvD8hU8hbSz2vNJ0bGTBa4tN2o379ib60/edit?usp=sharing" target="_blank" rel="noopener noreferrer">reading list</a> geared for a policy audience that should take &lt;45 mins, and commentary on the FCC's restrictions on new foreign advanced robotics.</p>
-                                    <a href="https://attacksurfaceai.substack.com/p/can-the-fcc-secure-the-us-robotics" target="_blank" rel="noopener noreferrer">read here →</a>
-                                </div>
-                            </div>
-                            <div class="tab-panel tab-panel--hidden" id="projects-sae">
-                                <img src="media/SAE.png" alt="SAE logo" class="tab-img">
-                                <div class="tab-panel-text">
-                                    <strong>SAE Interp Research</strong>
-                                    <p>Working with <a href="https://scholar.google.com/scholar?q=Stepan+Shabalin" target="_blank" rel="noopener noreferrer">Stepan Shabalin</a> to apply SAEs for mech interp on VLAs.</p>
-                                    <p>Check out my first technical paper, trying SAE steering on "goal-setting" tokens on VLAs!</p>
-                                    <a href="https://arxiv.org/abs/2611.00602" target="_blank" rel="noopener noreferrer">read here →</a>
-                                </div>
-                            </div>
-                            <div class="tab-panel tab-panel--hidden" id="projects-deepfake">
-                                <img src="media/USLegislation.png" alt="legislation" class="tab-img">
-                                <div class="tab-panel-text">
-                                    <strong>US Deepfake Legislation Analysis</strong>
-                                    <p>A paper analyzing US legislation trends around deepfakes in the 2020-2025 time period, produced as my final artifact for INTA8000 under Prof. Margaret Kosal.</p>
-                                    <a href="https://gtvault-my.sharepoint.com/:w:/g/personal/rvaldes6_gatech_edu/IQA1tFpRaJviTo57Xgb9UWfsAR3OJNdOrcj_w-gy-tE9bzo?e=8sHJPg" target="_blank" rel="noopener noreferrer">read here →</a>
-                                </div>
-                            </div>
-                            <div class="tab-panel tab-panel--hidden" id="projects-wordcount">
-                                <img src="media/personalizedwordcount.png" alt="Personalized Wordcount" class="tab-img">
-                                <div class="tab-panel-text">
-                                    <strong>Personalized Wordcount</strong>
-                                    <p>A published Google Docs extension for selective word counting. 2K+ downloads!</p>
-                                    <a href="/personalizedwordcount/homepage.html">website + download →</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
                     <p class="shelf-label">Sources I recommend</p>
-                    <div class="browser-tabs browser-tabs--vertical">
-                        <div class="tabs-bar">
-                            <button class="tab tab--active" onclick="switchTab('sources', 'transformer', this)">Transformer</button>
-                            <button class="tab" onclick="switchTab('sources', 'zvi', this)">Zvi</button>
-                            <button class="tab" onclick="switchTab('sources', 'jasmine', this)">Jasmine Sun</button>
-                            <button class="tab" onclick="switchTab('sources', 'aipolicy', this)">AI Policy Daily</button>
-                        </div>
-                        <div class="tab-content">
-                            <div class="tab-panel" id="sources-transformer">
-                                <img src="https://www.google.com/s2/favicons?domain=transformernews.ai&sz=64" alt="Transformer" class="tab-img tab-img--favicon">
-                                <div class="tab-panel-text">
-                                    <strong>Transformer</strong>
-                                    <p>Mostly policy, love their weekly briefings!</p>
-                                    <a href="https://www.transformernews.ai/" target="_blank" rel="noopener noreferrer">visit source →</a>
-                                </div>
-                            </div>
-                            <div class="tab-panel tab-panel--hidden" id="sources-zvi">
-                                <img src="https://www.google.com/s2/favicons?domain=thezvi.substack.com&sz=64" alt="Zvi" class="tab-img tab-img--favicon">
-                                <div class="tab-panel-text">
-                                    <strong>Zvi</strong>
-                                    <p>More technical, great analysis of model cards.</p>
-                                    <a href="https://thezvi.substack.com/" target="_blank" rel="noopener noreferrer">visit source →</a>
-                                </div>
-                            </div>
-                            <div class="tab-panel tab-panel--hidden" id="sources-jasmine">
-                                <img src="https://www.google.com/s2/favicons?domain=jasmi.news&sz=64" alt="Jasmine Sun" class="tab-img tab-img--favicon">
-                                <div class="tab-panel-text">
-                                    <strong>Jasmine Sun</strong>
-                                    <p>More anthropological/social commentary shaped.</p>
-                                    <a href="https://jasmi.news/" target="_blank" rel="noopener noreferrer">visit source →</a>
-                                </div>
-                            </div>
-                            <div class="tab-panel tab-panel--hidden" id="sources-aipolicy">
-                                <img src="https://www.google.com/s2/favicons?domain=aipolicydaily.org&sz=64" alt="AI Policy Daily" class="tab-img tab-img--favicon">
-                                <div class="tab-panel-text">
-                                    <strong>AI Policy Daily</strong>
-                                    <p>Exactly what you'd assume from the title.</p>
-                                    <a href="https://aipolicydaily.org/" target="_blank" rel="noopener noreferrer">visit source →</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <ul class="shelf-list">
+                        <li><a href="https://aipolicydaily.org/" target="_blank" rel="noopener noreferrer">AI Policy Daily</a></li>
+                        <li><a href="https://www.transformernews.ai/" target="_blank" rel="noopener noreferrer">Transformer</a></li>
+                        <li><a href="https://www.hyperdimensional.co/" target="_blank" rel="noopener noreferrer">Hyperdimensional</a></li>
+                        <li>Cool X accounts (<a href="https://x.com/_rociopv/following" target="_blank" rel="noopener noreferrer" id="random-x-account">click here</a> to open a random account I follow)</li>
+                    </ul>
 
                     <p class="shelf-label">Great books</p>
-                    <div class="browser-tabs browser-tabs--vertical">
-                        <div class="tabs-bar">
-                            <button class="tab tab--active" onclick="switchTab('books', 'maribel', this)">Maribel y la Extraña Familia</button>
-                            <button class="tab" onclick="switchTab('books', 'luces', this)">Luces de Bohemia</button>
-                            <button class="tab" onclick="switchTab('books', 'liking', this)">Liking What You See</button>
-                            <button class="tab" onclick="switchTab('books', 'perfection', this)">The Case Against Perfection</button>
-                            <button class="tab" onclick="switchTab('books', 'bnw', this)">Brave New World</button>
-                            <button class="tab" onclick="switchTab('books', 'agresividad', this)">Agresividad y Derecho</button>
-                        </div>
-                        <div class="tab-content">
-                            <div class="tab-panel" id="books-maribel">
-                                <div class="tab-panel-text">
-                                    <strong>Maribel y la Extraña Familia - Miguel Mihura</strong>
-                                    <p>An absurdist comedy all about self-forgiveness with outstandingly well-written female characters. Probably my favorite work of literature ever, the dialogue is both histerical and poignant.</p>
-                                </div>
-                            </div>
-                            <div class="tab-panel tab-panel--hidden" id="books-luces">
-                                <div class="tab-panel-text">
-                                    <strong>Luces de Bohemia - Ramón del Valle-Inclán </strong>
-                                    <p>The prime example of "esperpento" a Spanish play genre that can be understood as being a tragedy with strong social critique. Beautiful but soul-crushing, I was in a funk for a few days. </p>
-                                </div>
-                            </div>
-                            <div class="tab-panel tab-panel--hidden" id="books-liking">
-                                <div class="tab-panel-text">
-                                    <strong>Liking What You See: A Documentary - Ted Chiang</strong>
-                                    <p>Ted Chiang is a favorite between sci-fi fans and this short story along with "Hell is the Absence of God" are my favorite.</p>
-                                </div>
-                            </div>
-                            <div class="tab-panel tab-panel--hidden" id="books-perfection">
-                                <div class="tab-panel-text">
-                                    <strong>The Case Against Perfection - Michael J. Sandel</strong>
-                                    <p>Fantastic long-form essay-argument, made me grateful for the randomness inherent in human talent and encouraged my first public Substack</p>
-                                </div>
-                            </div>
-                            <div class="tab-panel tab-panel--hidden" id="books-bnw">
-                                <div class="tab-panel-text">
-                                    <strong>Brave New World - Aldous Huxley</strong>
-                                    <p>It's up there with Fahrenheit 451, but I found the concept of SOMA more troubling. Weirdly, I did not enjoy 1984 as much.</p>
-                                </div>
-                            </div>
-                            <div class="tab-panel tab-panel--hidden" id="books-agresividad">
-                                <div class="tab-panel-text">
-                                    <strong>Agresividad y Derecho - Pedro Rocamora García-Valls</strong>
-                                    <p>Very interesting reflections on the role of the law. Reading it was the first time I encountered the argument that suing and leveraging the law as the civilized alternative to direct violent acts is merely a change in the form of violence. The one suing simply defers their desire for retribution to the law. You can find the PDF <a href="https://rociopv.com/media/agresividad_y_derecho.pdf" target="_blank" rel="noopener noreferrer">here</a>.</p>                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <ul class="shelf-list">
+                        <li>Maribel y la Extraña Familia - Miguel Mihura</li>
+                        <li>Luces de Bohemia - Ramón del Valle-Inclán</li>
+                        <li>Liking What You See: A Documentary - Ted Chiang</li>
+                        <li>The Case Against Perfection - Michael J. Sandel</li>
+                        <li>Brave New World - Aldous Huxley</li>
+                        <li><a href="https://rociopv.com/media/agresividad_y_derecho.pdf" target="_blank" rel="noopener noreferrer">Agresividad y Derecho</a> - Pedro Rocamora García-Valls</li>
+                    </ul>
                 </div>
 
 
                 <div id="about-me-content">
                     <div class="about-me-body">
+                    <div class="about-intro">
+                    <figure class="pfp-figure">
                     <button class="profile-image pfp-flip" onclick="flipProfile(this)" aria-label="Flip my photo to see more pictures of me">
                         <span class="pfp-inner">
                             <img src="media/pfp_corl.png" alt="Rocio presenting at CoRL" class="pfp-face pfp-cutout" style="object-position: top center; background-color: transparent">
                             <img src="media/drawing.png" alt="Pen drawing of Rocio" class="pfp-face pfp-back" style="background-color: #ffffff">
                         </span>
                     </button>
-                    <h2>Hey, I'm Rocio! <span class="pronunciation">(roh-thee-oh)</span> <span class="degree-inline">B.S. Computer Science @ Georgia Tech, minor in Law, Science and Technology.</span></h2>
-                    <p>I am interested in understanding what good AI policy and governance actually looks like.<br>
-                        I co-direct the AI Safety Initiative at Georgia Tech, leading field-building efforts to get the very best working on steering towards positive futures with transformative AI.
+                    <figcaption class="pfp-caption" id="pfp-caption">This is me presenting at <a href="https://spais-ws.org" target="_blank" rel="noopener noreferrer">SPAIS</a> @ CoRL, Nov '26</figcaption>
+                    </figure>
+                    <h2>Welcome, I'm <span class="name-say" tabindex="0">Rocio<span class="name-say-tip" role="tooltip">roh-thee-oh (the c sounds like "th")</span></span>!</h2>
+                    </div>
+                    <p>I am interested in understanding what good AI policy actually looks like.</p>
+                    <p>I co-direct the AI Safety Initiative (AISI) at Georgia Tech, leading field-building efforts to get the very best working on steering towards positive futures with transformative AI.<br>
+                        I spent the last summer working at <a href="https://www.iaps.ai/" target="_blank" rel="noopener noreferrer">IAPS</a> thinking about threat models from physical AI.
                         </p>
 
                     <div class="contact-row">
                     <!-- dots are drawn by drawAgeDots() in script.js, one per year of age -->
                     <svg class="s-dots" viewBox="0 0 340 90" aria-hidden="true"></svg>
-                    <p class="contact-links"> Read my  <a href="https://substack.com/@rociopv" target="_blank" rel="noopener noreferrer"> Substack</a> 
+                    <p class="contact-links"><a href="https://cal.com/rociopv/30min" target="_blank" rel="noopener noreferrer">Book a call</a>
                         <br>Give me anonymous <a href="https://www.admonymous.co/rocio-pv" target="_blank" rel="noopener noreferrer"> feedback</a>
                         <br>Email me: rocio.perales (at) gatech.edu</p>
                     </div>
 
-                    <p class="what-up-label">What I'm up to</p>
-                    <ul class="what-up">
-                        <li>Co-directing <a href="https://aisi.dev" target="_blank" rel="noopener noreferrer">AISI</a>, read about us <a href="https://research.gatech.edu/georgia-tech-student-group-puts-ai-safety-forefront-research" target="_blank" rel="noopener noreferrer">here</a></li>
-                        <li>Interpretability research on VLAs in the <a href="https://animesh.garg.tech/" target="_blank" rel="noopener noreferrer">PAIR Lab</a>, check out my first technical paper on SAE steering of "goal-setting" tokens <a href="https://arxiv.org/abs/2611.00602" target="_blank" rel="noopener noreferrer">here</a></li>
-                        <li>Reviewed the Spanish translation of <a href="https://metr.org/es/blog/2026-08-26-openai-hugging-face-incident-investigation/" target="_blank" rel="noopener noreferrer">METR's OpenAI/Hugging Face incident investigation report</a></li>
-                    </ul>
-
-                    <br>
                     <p>If you're at Tech and want to get involved with AISI, come to our next <a href="https://aisi.dev/#block-yui_3_17_2_1_1778782455828_15157">event</a> and feel free to <a href="mailto:board@aisi.dev?subject=Reaching%20out%20to%20%7BINSERT%20YOUR%20QUESTION%20HERE%7D%20%5BFrom%20Rocio's%20website%5D">reach out</a></p>
                     </div>
-                    <p class="about-quote">"The state of things is evidently far from simple" - William James</p>
+                </div>
+
+                <div id="doing-content">
+                    <p class="shelf-label">Doing</p>
+                    <ul class="what-up">
+                        <li>B.S. Computer Science @ Georgia Tech, minor in Law, Science and Technology</li>
+                        <li>Co-directing <a href="https://aisi.dev" target="_blank" rel="noopener noreferrer">AISI</a>, read about us <a href="https://research.gatech.edu/georgia-tech-student-group-puts-ai-safety-forefront-research" target="_blank" rel="noopener noreferrer">here</a></li>
+                        <li>VLA interpretability in the <a href="https://animesh.garg.tech/" target="_blank" rel="noopener noreferrer">PAIR Lab</a>, see my <a href="https://spais-ws.org" target="_blank" rel="noopener noreferrer">SPAIS</a> @ CoRL '26 paper <a href="https://arxiv.org/abs/2611.00602" target="_blank" rel="noopener noreferrer">here</a></li>
+                    </ul>
+
+                    <p class="shelf-label">Did</p>
+                    <ul class="shelf-list">
+                        <li>IAPS
+                            <ul>
+                                <li>Summer Fellow at the Institute for AI Policy and Strategy: worked on robotics threat modeling. Currently published: a <a href="https://docs.google.com/document/d/1a2QTSpmUjrBvD8hU8hbSz2vNJ0bGTBa4tN2o379ib60/edit?usp=sharing" target="_blank" rel="noopener noreferrer">reading list</a> geared for a policy audience that should take &lt;45 mins, and <a href="https://attacksurfaceai.substack.com/p/can-the-fcc-secure-the-us-robotics" target="_blank" rel="noopener noreferrer">commentary</a> on the FCC's restrictions on new foreign advanced robotics.</li>
+                            </ul>
+                        </li>
+                        <li>Misc AI Safety
+                            <ul>
+                                <li><a href="https://metr.org/es/blog/2026-08-26-openai-hugging-face-incident-investigation/" target="_blank" rel="noopener noreferrer">Assisting METR Spanish Translation</a>: assisted with the Spanish translation of METR's OpenAI/Hugging Face incident investigation report.</li>
+                                <li><a href="https://gtvault-my.sharepoint.com/:w:/g/personal/rvaldes6_gatech_edu/IQA1tFpRaJviTo57Xgb9UWfsAR3OJNdOrcj_w-gy-tE9bzo?e=8sHJPg" target="_blank" rel="noopener noreferrer">US Deepfake Legislation Analysis</a>: a paper analyzing US legislation trends around deepfakes in the 2020-2025 time period, produced as my final artifact for INTA8000 under Prof. Margaret Kosal.</li>
+                            </ul>
+                        </li>
+                        <li>Code (pre-vibe)
+                            <ul>
+                                <li>FTC: FIRST Tech Challenge robotics in high school.</li>
+                                <li><a href="/personalizedwordcount/homepage.html">Personalized Wordcount</a>: a published Google Docs extension for selective word counting. 2K+ downloads!</li>
+                                <li>ZeruDrones: ML Solutions Intern, trained YOLO models on AWS GPU instances and integrated autoencoders for powerline anomaly detection.</li>
+                                <li>RoboJackets: RoboCup software member for a year, led implementation on the multi-robot pathfinding system (C++/ROS2), placed 2nd in the technical challenge and 4th overall at RoboCup 2025 Intl.</li>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
 
                 <div id="resume-content">
@@ -257,7 +155,7 @@
                             <div class="resume-entry">
                                 <div class="resume-entry-header">
                                     <span class="entry-title">Georgia Institute of Technology</span>
-                                    <span class="entry-date">GPA: 3.92 | May 2028</span>
+                                    <span class="entry-date">GPA: 3.92 | Weighing options for grad date, thinking B.S. Dec 2027</span>
                                 </div>
                                 <div class="entry-subtitle">B.S. Computer Science &nbsp;·&nbsp; Minor: Law, Science &amp; Technology</div>
                                 <div class="entry-note">Relevant Coursework: Applied Combinatorics, Computational &amp; Model Algorithms, DSA, Linear Algebra, Discrete Math</div>
@@ -379,6 +277,11 @@
 
 
 </div><!-- /section-viewport -->
+
+                <footer class="screen-footer">
+                    <button type="button" class="theme-toggle" onclick="toggleTheme()" aria-label="Switch to dark theme" title="Switch to dark theme">Dark theme</button>
+                    <p class="about-quote" id="footer-quote">The state of things is evidently far from simple</p>
+                </footer>
 
             </div>
 </div>

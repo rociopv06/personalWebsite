@@ -68,11 +68,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 latestEl.innerHTML = `Latest highlighted read: ${latest.date} - ${latest.html} &nbsp;  <button class="archive-toggle" id="archive-toggle-btn">Archive ⏷</button>`;
                 list.innerHTML = rest.map(e => `<li>${e.date} - ${e.html}</li>`).join('');
                 document.getElementById('archive-toggle-btn').addEventListener('click', function () {
-                    const opening = list.style.display !== 'block';
-                    list.style.display = opening ? 'block' : 'none';
-                    if (opening) {
-                        requestAnimationFrame(() => { list.scrollTop = list.scrollHeight; });
-                    }
+                    const opening = list.classList.toggle('archive-list--open');
+                    list.scrollTop = 0;
+                    this.textContent = opening ? 'Archive ⏶' : 'Archive ⏷';
                 });
             })
             .catch(err => console.error('Failed to load reading sheet', err));
@@ -120,14 +118,44 @@ function closeMenu() {
 }
 
 function showSection(section) {
-    const sections = ['portfolio', 'about-me', 'resume'];
+    const sections = ['portfolio', 'doing', 'about-me', 'resume'];
     sections.forEach(id => {
         const el = document.getElementById(`${id}-content`);
         if (!el) return;
         if (id !== section) { el.style.display = 'none'; return; }
         el.style.display = id === 'about-me' ? 'flex' : 'block';
     });
+    const quote = document.getElementById('footer-quote');
+    if (quote) quote.textContent = FOOTER_QUOTES[section] || DEFAULT_QUOTE;
 }
+
+// footer quote: the Bookshelf gets its own, every other page uses the default
+const DEFAULT_QUOTE = 'The state of things is evidently far from simple';
+const FOOTER_QUOTES = {
+    'portfolio': 'You shall know the truth, and the truth shall make you free',
+};
+
+// light/dark theme: class on <html>, remembered per browser
+// SVG icons instead of ☀/☾ characters, which sit off-center in most fonts
+const SUN_ICON = '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>';
+const MOON_ICON = '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>';
+function setThemeLabels() {
+    const dark = document.documentElement.classList.contains('dark');
+    document.querySelectorAll('.theme-toggle').forEach(b => {
+        b.innerHTML = (dark ? SUN_ICON : MOON_ICON) + `<span>${dark ? 'Light theme' : 'Dark theme'}</span>`;
+        const label = dark ? 'Switch to light theme' : 'Switch to dark theme';
+        b.setAttribute('aria-label', label);
+        b.title = label;
+    });
+}
+
+function toggleTheme() {
+    const dark = document.documentElement.classList.toggle('dark');
+    try { localStorage.setItem('theme', dark ? 'dark' : 'light'); } catch (e) {}
+    setThemeLabels();
+}
+
+document.addEventListener('DOMContentLoaded', setThemeLabels);
 
 function openUp(el, webpage) {
     const clone = el.cloneNode(true);
@@ -167,7 +195,7 @@ function drawAgeDots(svg) {
     const frac = (now - last) / (next - last);
 
     // endpoints in viewBox units; k sets how sharply the curve bends upward
-    const x0 = 8, y0 = 84, x1 = 332, y1 = 6, k = 3;
+    const x0 = 8, y0 = 84, x1 = 332, y1 = 6, k = 7;
     const point = t => ({
         x: x0 + (x1 - x0) * t,
         y: y0 + (y1 - y0) * (Math.exp(k * t) - 1) / (Math.exp(k) - 1),
@@ -207,9 +235,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Clicking the profile picture flips between the headshot and each alternative in turn
 // (headshot, alt 1, headshot, alt 2, ...); the hidden face is swapped before each turn.
-const PROFILE_DEFAULT = { src: 'media/pfp_corl.png', alt: 'Rocio presenting at CoRL', pos: 'top center', bg: 'transparent', cutout: true };
+const PROFILE_DEFAULT = { src: 'media/pfp_corl.png', alt: 'Rocio presenting at CoRL', pos: 'top center', bg: 'transparent', cutout: true, caption: "This is me presenting at <a href=\"https://spais-ws.org\" target=\"_blank\" rel=\"noopener noreferrer\">SPAIS</a> @ CoRL, Nov '26" };
 const PROFILE_ALTS = [
-    { src: 'media/drawing.png', alt: 'Pen drawing of Rocio', pos: 'center', bg: '#ffffff' },
+    { src: 'media/drawing.png', alt: 'Pen drawing of Rocio', pos: 'center', bg: '#ffffff', caption: "A very nice drawing of me done by my friend Naomi in the library" },
 ];
 
 function profileFace(turns) {
@@ -231,6 +259,8 @@ function flipProfile(btn) {
     setProfileFace(faces[turns % 2], profileFace(turns));
     btn.dataset.turns = turns;
     btn.style.setProperty('--turns', turns);
+    const caption = document.getElementById('pfp-caption');
+    if (caption) caption.innerHTML = profileFace(turns).caption || '';
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -238,5 +268,28 @@ document.addEventListener('DOMContentLoaded', () => {
         const faces = btn.querySelectorAll('.pfp-face');
         setProfileFace(faces[0], profileFace(0));
         setProfileFace(faces[1], profileFace(1));
+    });
+});
+
+// "Cool X accounts": add handles (without the @) here; each click opens a random one.
+// People only (no companies/orgs). If the list is ever empty the link falls back to my Following page.
+const X_ACCOUNTS = [
+    'jrosseruk', 'merettm', 'goldman', 'MauricBaker', 'SwannAiden', 'Yogi_Brn',
+    'lxrjl', 'FazlBarez', 'xave_rg', '_albertorod_', 'JordanTensor', 'adamkovac',
+    'Miles_Brundage', 'tobias_haeberli', 'conitzer', 'neverrixx', 'nikilravi', 'spicey_lemonade',
+    'gabriel_weil', 'natolambert', 'adam_karvonen', 'bshlgrs', 'calebknappdc',
+    'ChrisPainterYup', 'austinc3301', 'bradrcarson', 'thlarsen', 'EvanHub', 'bear_haon',
+    'SydneyVonArx', 'kaicathyc', 'hersheysbaklava', 'chooi_jeq', 'BethMayBarnes', 'Thom_Wolf',
+    'jan__wehner', 'SayreEvan', 'zephaniahbroe',
+];
+
+document.addEventListener('DOMContentLoaded', () => {
+    const link = document.getElementById('random-x-account');
+    if (!link) return;
+    link.addEventListener('click', e => {
+        if (!X_ACCOUNTS.length) return;
+        e.preventDefault();
+        const handle = X_ACCOUNTS[Math.floor(Math.random() * X_ACCOUNTS.length)];
+        window.open(`https://x.com/${handle}`, '_blank', 'noopener');
     });
 });
